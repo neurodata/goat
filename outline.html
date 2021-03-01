@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Outline &#8212; Maggot Connectome</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/nd_logo_small.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction" href="introduction.html" />
+    <link rel="prev" title="Welcome" href="landing.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/nd_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Maggot Connectome</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="landing.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Preliminaries
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Outline
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Look at it
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="simple_statistics.html">
+   Simple summary statistics
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Flow
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="flow_rank_hypothesis.html">
+   Flow ranking and hypothesis testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="flow_rank.html">
+   Flow
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/outline.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/neurodata/maggot_connectome"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/neurodata/maggot_connectome/issues/new?title=Issue%20on%20page%20%2Foutline.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/neurodata/maggot_connectome/edit/main/maggot_connectome/outline.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#figure-panels">
+   Figure Panels
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code">
+   Code
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="outline">
+<h1>Outline<a class="headerlink" href="#outline" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="figure-panels">
+<h2>Figure Panels<a class="headerlink" href="#figure-panels" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Show the data</p>
+<ul>
+<li><p>What do the neurons look like? Plot the neurons in space, maybe show a few examples, etc.</p></li>
+<li><p>What does the graph look like? Can plot adjacencies as well as some kind of graph layout possibly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[x]</span></code> Some simple descripive statistics (# nodes, # edges, # synapses, degrees, weights, etc.)</p>
+<ul>
+<li><p>Table: number of nodes, number of edges, number of synapses</p></li>
+<li><p>Panel of edge weight distribution</p></li>
+<li><p>Panel of in vs out degree with marginals</p></li>
+</ul>
+</li>
+<li><p>(Maybe) something describing the different edge types</p></li>
+</ul>
+</li>
+<li><p>A priori SBM-family model comparison and selection</p>
+<ul>
+<li><p>We have some A priori information:</p>
+<ul>
+<li><p>left/right hemisphere</p></li>
+<li><p>ipsilateral, contralateral, bilateral</p></li>
+<li><p>loose cell types</p>
+<ul>
+<li><p>sensory/motor/interneuron</p></li>
+<li><p>other rough categories</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>We can fit a priori SBMs using all of the above. Some of them can even be nested (e.g. by left/right and then by ipsi/contra/bi)</p></li>
+<li><p>For each, calculate the number of free parameters.</p></li>
+<li><p>Do some kind of model selection/comparison and try to select the best one</p></li>
+<li><p>Left/right hemisphere blockmodel (<em>question: how does this relate to the above, even within a model class of 2 block SBMs there are a ton of different ways to parameterize</em>)</p>
+<ul>
+<li><p>maybe framed less as a test, more as part of the model selection question</p></li>
+<li><p>testing for homophillic/assortative, the different SBM block probability hypotheses</p></li>
+<li><p>Could do the above with the different 4 color graphs as well</p></li>
+</ul>
+</li>
+<li><p>have lots of tools to evaluate.</p>
+<ul>
+<li><p>with the DC stuff we don’t quite know how to do it. with SBM jovo thinks we do know how.</p></li>
+</ul>
+</li>
+<li><p>point of this figure is lets evaluate how good our models are</p></li>
+</ul>
+</li>
+<li><p>A posteriori modeling</p>
+<ul>
+<li><p>point of this one is what can we learn about the structure of the data that we dont have a priori</p></li>
+<li><p>Hierarchical SBM estimation</p>
+<ul>
+<li><p>should we revisit how this is estimated?</p></li>
+<li><p>we never tried initializing with a prior</p></li>
+<li><p>could use the best a priori as init for a posteriori</p></li>
+</ul>
+</li>
+<li><p>Leiden hierarchical SBM estimation, how are these different/not different (do we want this?)</p>
+<ul>
+<li><p>this is just another way of fitting an SBM, with different constraints.</p></li>
+</ul>
+</li>
+<li><p>Comparison of model complexity (dDCSBM, SBM, RDPG-d, etc.)</p></li>
+<li><p>Follow up with brain images labeling the neurons</p></li>
+<li><p>Want to justify by looking at the neurobiology</p></li>
+</ul>
+</li>
+<li><p>Ok, so maybe we should include vertex attributes</p>
+<ul>
+<li><p>Embedding with node covariates for example</p></li>
+<li><p>Maybe we just show?</p></li>
+<li><p>Figure out how to evaluate?</p></li>
+</ul>
+</li>
+<li><p>(maybe) multigraph model selection</p></li>
+<li><p>Graph matching methods figure (I don’t think these results from Youngser/Carey ever went to a paper anywhere? so I assume CEP would be okay with them here? And we should be able to replicate/improve in python now.)</p>
+<ul>
+<li><p>Show some examples of pairs in space.</p></li>
+<li><p>Show results of vanilla GM, GM with some notion of similarity (maybe NBLAST and or spec sim?), GM with multigraph, GM with multigraph + similarity.</p></li>
+<li><p>(Maybe) Seeded graph matching with the known pairs as seeds? I actually use this in my work… so it is useful.</p></li>
+<li><p>Some interesting inference about pairedness? Would be nice to show what this can be used for, or demonstrate which parts are more/less bilaterally similar?</p></li>
+<li><p>Maybe something about testing for homotypic connections?</p></li>
+</ul>
+</li>
+<li><p>Bilateral symmetry/testing</p>
+<ul>
+<li><p>How similar are the SBM models?</p>
+<ul>
+<li><p>chi square test?</p></li>
+</ul>
+</li>
+<li><p>How similar are the RDPG models (nonpar/semipar)?</p>
+<ul>
+<li><p>maybe select best model and compare left right on those</p></li>
+</ul>
+</li>
+<li><p>Can we say anything about the correlation under these different models?</p></li>
+<li><p>Testing homotopic affinity (by edge type)</p></li>
+</ul>
+</li>
+<li><p>Directedness: testing for whether the graph or specific parts of it are meaningfully directed. (Do we know how to do this?)</p></li>
+<li><p>Feedforwardness: describing (and hopefully modeling) a feedforward pathway through the network, expanding to include multinetwork models.</p>
+<ul>
+<li><p>Some description of the chain predicted by signal flow or cascades or graph match flow etc.</p></li>
+<li><p>Comparisons of the flows for different network types (e.g. AA, AD, etc.)</p></li>
+<li><p>Testing for feedforwardness with spring rank model</p></li>
+<li><p>maybe goes in Cambridge paper?</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="code">
+<h2>Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/microsoft/graspologic/issues/636">Flow/hierarchy/ranking</a> into graspologic</p></li>
+<li><p>Improve the estimation code to make it easier to fit to data in a useful way, examine the models, etc. (as necessary)</p></li>
+<li><p>Adjacency with dendrogram for hierarchical clustering that is not complete</p>
+<ul>
+<li><p>I have code, not pretty, probably not generalizable yet</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/microsoft/graspologic/issues/570">Tests from statistical connectomics</a> into graspologic</p>
+<ul>
+<li><p>We should talk to Eric/decide what we actually want first</p></li>
+</ul>
+</li>
+<li><p>Bar dendrogram plotting in general</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="landing.html" title="previous page">Welcome</a>
+    <a class='right-next' id="next-link" href="introduction.html" title="next page">Introduction</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroData<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
