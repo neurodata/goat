@@ -3,7 +3,7 @@ from glob import glob
 import numpy as np
 
 # Collect a list of all notebooks in the content folder
-loc = "maggot_connectome/docs/**/*.ipynb"
+loc = "gmot/docs/**/*.ipynb"
 print(f"Looking for notebooks in: {loc}\n")
 notebooks = glob(loc, recursive=True)
 
