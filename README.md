@@ -1,6 +1,6 @@
-# Maggot connectome
+# GMOT
 
-A paper exploring the connectome of a larval Drosophila
+A paper using optimal transport to solve the graph matching problem.
 
 ## Repo structure 
 - ``.github``: Files specifying how the repo behaves on GitHub
