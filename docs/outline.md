@@ -13,7 +13,7 @@
 - Figure 4 from FAQ: FAQ vs GMOT on QAPLIB
   - objfunc
   - time
-  - # vertices
+  - number of vertices
   - basically pairplots for the 3 above
 - Figure kinda like SGM figure 2 one
   - rho-SBM for increasing rho, differently sized graphs
