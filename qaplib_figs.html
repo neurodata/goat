@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QAPLIB Figures &#8212; GMOT</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.37f24b989f4638ff9c27c22dc7559d4f.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="_static/nd_logo_small.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  <img src="_static/nd_logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">GMOT</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="outline.html">
+   Outline
+  </a>
+ </li>
+</ul>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/qaplib_figs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/neurodata/gmot"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/neurodata/gmot/issues/new?title=Issue%20on%20page%20%2Fqaplib_figs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/neurodata/gmot/edit/main/gmot/qaplib_figs.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/neurodata/gmot/main?urlpath=tree/gmot/qaplib_figs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   QAPLIB Figures
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qaplib-benchmark-with-barycenter-init-random-shuffle">
+   QAPLIB Benchmark with barycenter init, random shuffle
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#qaplib-with-random-inits">
+   QAPLIB with Random Inits
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recreate-fig-4-from-faq-paper">
+   Recreate fig 4 from FAQ Paper
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="qaplib-figures">
+<h1>QAPLIB Figures<a class="headerlink" href="#qaplib-figures" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment</span>
+<span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment_ot</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hide</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;../../graspologic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="qaplib-benchmark-with-barycenter-init-random-shuffle">
+<h1>QAPLIB Benchmark with barycenter init, random shuffle<a class="headerlink" href="#qaplib-benchmark-with-barycenter-init-random-shuffle" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span><span class="s2">&quot;esc16b&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;rou12&quot;</span><span class="p">,</span><span class="s2">&quot;rou15&quot;</span><span class="p">,</span><span class="s2">&quot;rou20&quot;</span><span class="p">,</span><span class="s2">&quot;tai12a&quot;</span><span class="p">,</span><span class="s2">&quot;tai15a&quot;</span><span class="p">,</span><span class="s2">&quot;tai17a&quot;</span><span class="p">,</span><span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span><span class="s2">&quot;tai35a&quot;</span><span class="p">,</span><span class="s2">&quot;tai40a&quot;</span><span class="p">]</span>
+<span class="c1"># qapprob = [&quot;lipa20a&quot;, &quot;lipa20b&quot;, &quot;lipa30a&quot;, &quot;lipa30b&quot;, &quot;lipa40a&quot;, &quot;lipa40b&quot;,</span>
+<span class="c1">#               &quot;lipa50a&quot;, &quot;lipa50b&quot;, &quot;lipa60a&quot;, &quot;lipa60b&quot;, &quot;lipa70a&quot;, &quot;lipa70b&quot;,</span>
+<span class="c1">#               &quot;lipa80a&quot;, &quot;lipa90a&quot;, &quot;lipa90b&quot;]</span>
+<span class="c1"># qapprob =[&quot;sko100a&quot;, &quot;sko100b&quot;, &quot;sko100c&quot;, &quot;sko100d&quot;, &quot;sko100e&quot;, &quot;sko100f&quot;,]</span>
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+<span class="n">slnfile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/qaplib/qap_sols.npz&quot;</span><span class="p">,</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">datafile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/qaplib/qap_probs.npz&quot;</span><span class="p">,</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+
+<span class="n">gm_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">gmot_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>          
+    <span class="n">gm_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+    
+    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">})</span>       
+    <span class="n">gmot_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="p">[</span><span class="n">slnfile</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">qapprob</span><span class="p">]</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">opt</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">gm_scores</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmot_scores</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OPT&quot;</span><span class="p">,</span><span class="s2">&quot;GM&quot;</span><span class="p">,</span> <span class="s1">&#39;GM_OT&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;QAP&quot;</span><span class="p">,</span><span class="n">qapprob</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       QAP      OPT       GM    GM_OT
+0   chr12c    11156    13072    12850
+1   chr15a     9896    16398    14840
+2   chr15c     9504    19206    16284
+3   chr20b     2298     2986     3422
+4   chr22b     6194     8420     7482
+5   esc16b      292      320      316
+6    rou12   235528   253420   243392
+7    rou15   354210   369342   370696
+8    rou20   725522   743884   742606
+9   tai12a   224416   244672   224416
+10  tai15a   388214   397376   402248
+11  tai17a   491812   509656   499528
+12  tai20a   703482   734276   771754
+13  tai30a  1818146  1880064  1869814
+14  tai35a  2422002  2460940  2498962
+15  tai40a  3139370  3227612  3180126
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="qaplib-with-random-inits">
+<h1>QAPLIB with Random Inits<a class="headerlink" href="#qaplib-with-random-inits" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span><span class="s2">&quot;esc16b&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;rou12&quot;</span><span class="p">,</span><span class="s2">&quot;rou15&quot;</span><span class="p">,</span><span class="s2">&quot;rou20&quot;</span><span class="p">,</span><span class="s2">&quot;tai12a&quot;</span><span class="p">,</span><span class="s2">&quot;tai15a&quot;</span><span class="p">,</span><span class="s2">&quot;tai17a&quot;</span><span class="p">,</span><span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span><span class="s2">&quot;tai35a&quot;</span><span class="p">,</span><span class="s2">&quot;tai40a&quot;</span><span class="p">]</span>
+<span class="c1"># qapprob = [&quot;lipa20a&quot;, &quot;lipa20b&quot;, &quot;lipa30a&quot;, &quot;lipa30b&quot;, &quot;lipa40a&quot;, &quot;lipa40b&quot;,</span>
+<span class="c1">#               &quot;lipa50a&quot;, &quot;lipa50b&quot;, &quot;lipa60a&quot;, &quot;lipa60b&quot;, &quot;lipa70a&quot;, &quot;lipa70b&quot;,</span>
+<span class="c1">#               &quot;lipa80a&quot;, &quot;lipa90a&quot;, &quot;lipa90b&quot;]</span>
+<span class="c1"># qapprob =[&quot;sko100a&quot;, &quot;sko100b&quot;, &quot;sko100c&quot;, &quot;sko100d&quot;, &quot;sko100e&quot;, &quot;sko100f&quot;,]</span>
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+<span class="n">bari_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">no_shuffle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#controls number of barycenter inits</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
+    <span class="n">b_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">den</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="s1">&#39;randomized&#39;</span><span class="p">})</span>
+                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">)</span>
+                                   <span class="c1">#options={&#39;rng&#39;:i+k} )</span>
+        <span class="n">b_min</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">})</span>
+                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">)</span>
+        
+    <span class="n">bari_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">b_min</span><span class="p">)</span>
+    <span class="n">no_shuffle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="p">[</span><span class="n">slnfile</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">qapprob</span><span class="p">]</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">opt</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bari_scores</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">no_shuffle</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OPT&quot;</span><span class="p">,</span><span class="s2">&quot;GM&quot;</span><span class="p">,</span> <span class="s1">&#39;GM_OT&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;QAP&quot;</span><span class="p">,</span><span class="n">qapprob</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       QAP      OPT       GM    GM_OT
+0   chr12c    11156    12910    11566
+1   chr15a     9896    12596    10632
+2   chr15c     9504    12682    12324
+3   chr20b     2298     2884     2702
+4   chr22b     6194     7468     7060
+5   esc16b      292      292      292
+6    rou12   235528   235528   238134
+7    rou15   354210   354210   359748
+8    rou20   725522   728724   731916
+9   tai12a   224416   224416   224416
+10  tai15a   388214   392712   392712
+11  tai17a   491812   501016   496598
+12  tai20a   703482   710350   705622
+13  tai30a  1818146  1850676  1828454
+14  tai35a  2422002  2461826  2431498
+15  tai40a  3139370  3186970  3179110
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recreate-fig-4-from-faq-paper">
+<h1>Recreate fig 4 from FAQ Paper<a class="headerlink" href="#recreate-fig-4-from-faq-paper" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bur26a&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26b&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26c&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26d&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26e&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;bur26g&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26h&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr15b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr20c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr25a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;els19&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16a&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16b&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16c&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16d&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16g&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16h&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16i&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16j&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32g&quot;</span><span class="p">,</span> <span class="s2">&quot;esc128&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;had12&quot;</span><span class="p">,</span> <span class="s2">&quot;had14&quot;</span><span class="p">,</span> <span class="s2">&quot;had16&quot;</span><span class="p">,</span> <span class="s2">&quot;had18&quot;</span><span class="p">,</span> <span class="s2">&quot;had20&quot;</span><span class="p">,</span> <span class="s2">&quot;kra30a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;kra30b&quot;</span><span class="p">,</span> <span class="s2">&quot;kra32&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa20a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa20b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa50a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa50b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa80a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug12&quot;</span><span class="p">,</span> <span class="s2">&quot;nug14&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16a&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16b&quot;</span><span class="p">,</span> <span class="s2">&quot;nug17&quot;</span><span class="p">,</span> <span class="s2">&quot;nug18&quot;</span><span class="p">,</span> <span class="s2">&quot;nug20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug21&quot;</span><span class="p">,</span> <span class="s2">&quot;nug22&quot;</span><span class="p">,</span> <span class="s2">&quot;nug24&quot;</span><span class="p">,</span> <span class="s2">&quot;nug25&quot;</span><span class="p">,</span> <span class="s2">&quot;nug27&quot;</span><span class="p">,</span> <span class="s2">&quot;nug28&quot;</span><span class="p">,</span> <span class="s2">&quot;nug30&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;rou12&quot;</span><span class="p">,</span> <span class="s2">&quot;rou15&quot;</span><span class="p">,</span> <span class="s2">&quot;rou20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;scr12&quot;</span><span class="p">,</span> <span class="s2">&quot;scr15&quot;</span><span class="p">,</span> <span class="s2">&quot;scr20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko42&quot;</span><span class="p">,</span> <span class="s2">&quot;sko49&quot;</span><span class="p">,</span> <span class="s2">&quot;sko56&quot;</span><span class="p">,</span> <span class="s2">&quot;sko64&quot;</span><span class="p">,</span> <span class="s2">&quot;sko72&quot;</span><span class="p">,</span> <span class="s2">&quot;sko81&quot;</span><span class="p">,</span> <span class="s2">&quot;sko90&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko100a&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100b&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100c&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100d&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100e&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;ste36b&quot;</span><span class="p">,</span> <span class="s2">&quot;ste36c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai12a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai12b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai17a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai20b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai35a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai40a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai40b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai64c&quot;</span><span class="p">,</span> <span class="s2">&quot;tai80a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai150b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai256c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tho30&quot;</span><span class="p">,</span> <span class="s2">&quot;tho40&quot;</span><span class="p">,</span> <span class="s2">&quot;tho150&quot;</span><span class="p">,</span> <span class="s2">&quot;wil50&quot;</span><span class="p">,</span> <span class="s2">&quot;wil100&quot;</span><span class="p">]</span>
+
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">logofv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+
+    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>          
+    <span class="n">gm_score</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+    
+    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">})</span>       
+    <span class="n">logofv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">fun</span><span class="o">/</span><span class="n">gm_score</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span><span class="n">logofv</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of vertices&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log relative ofv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39344262295081966
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_12_1.png" src="_images/qaplib_figs_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>percent better = 0.319672131147541
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By NeuroData<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
