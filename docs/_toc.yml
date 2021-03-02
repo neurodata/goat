@@ -2,6 +2,6 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: outline
 
--part: QAPLIB
+- part: QAPLIB
   chapters:
-  -file: qaplib_figs
+  - file: qaplib_figs
