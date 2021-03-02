@@ -4,7 +4,7 @@ import numpy as np
 from scipy._lib._util import check_random_state
 from scipy.optimize import OptimizeResult, linear_sum_assignment
 
-from ..utils import _check_init_input, _doubly_stochastic, _split_matrix
+from .utils import _check_init_input, _doubly_stochastic, _split_matrix
 
 
 def quadratic_assignment(A, B, method="faq", options=None):
