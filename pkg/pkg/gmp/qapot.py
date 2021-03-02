@@ -218,6 +218,8 @@ def _quadratic_assignment_faq_ot(
     shuffle_input=False,
     maxiter=30,
     tol=0.03,
+    reg = 100,
+    thr = 5e-2,
 ):
     r"""
     Solve the quadratic assignment problem (approximately).
@@ -304,6 +306,13 @@ def _quadratic_assignment_faq_ot(
         iterations is sufficiently small, that is, when the relative Frobenius
         norm, :math:`\frac{||P_{i}-P_{i+1}||_F}{\sqrt{len(P_{i})}} \leq tol`,
         where :math:`i` is the iteration number.
+    reg : numerical (default = 100)
+        A regularization term for scaling :math:`\lambda` during lightspeed optimal 
+        transport (:math:`\lambda = reg/max(\grad{f(P))}`).
+    thr : float (default = 5e-2)
+        The threshold within with the step direction matrix is doubly stochastic. 
+        Sinkhorn stops when all row and column sums are equal to 1 within this 
+        threshold.
     Returns
     -------
     res : OptimizeResult
@@ -432,7 +441,7 @@ def _quadratic_assignment_faq_ot(
         # [1] Algorithm 1 Line 3 - compute the gradient of f(P) = -tr(APB^tP^t)
         grad_fp = const_sum + A22 @ P @ B22.T + A22.T @ P @ B22
         # [1] Algorithm 1 Line 4 - get direction Q by solving Eq. 8
-        Q = alap(grad_fp, n_unseed, maximize=maximize)
+        Q = alap(grad_fp, n_unseed, maximize, reg, thr)
 #         Q = np.eye(n_unseed)[cols]
 
         # [1] Algorithm 1 Line 5 - compute the step size
@@ -504,15 +513,15 @@ def _split_matrix(X, n):
 
 # from numba import jit
 # @jit(nopython=True)
-def alap(P, n, maximize, tol=5e-2):
+def alap(P, n, maximize, reg, tol):
     power = 1 if maximize else -1
-    lamb = 100/np.max(np.abs(P))
+    lamb = reg/np.max(np.abs(P))
     P = np.exp(lamb*power*P)
 
 #     ones = np.ones(n)
 #     P_eps = sinkhorn(ones, ones, P, power/lamb, stopInnerThr=5e-02) # * (P > np.log(1/n)/lamb)
     
-    P_eps = _doubly_stochastic(P, 5e-02)
+    P_eps = _doubly_stochastic(P, tol)
 
     return P_eps
 
