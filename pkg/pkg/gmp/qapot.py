@@ -1,10 +1,10 @@
-import numpy as np
 import operator
-from scipy.optimize import linear_sum_assignment, OptimizeResult
 
+import numpy as np
 from scipy._lib._util import check_random_state
-import itertools
-from ot import sinkhorn
+from scipy.optimize import OptimizeResult, linear_sum_assignment
+
+from ..utils import _check_init_input, _doubly_stochastic, _split_matrix
 
 
 def quadratic_assignment_ot(A, B, method="faq", options=None):
@@ -454,8 +454,8 @@ def _quadratic_assignment_faq_ot(
         b12 = ((R.T @ A12.T) * B12.T).sum()
         AR22 = A22.T @ R
         BR22 = B22 @ R.T
-        b22a = (AR22 * (Q@B22.T)).sum()
-        b22b = (A22 * (Q@BR22)).sum()
+        b22a = (AR22 * (Q @ B22.T)).sum()
+        b22b = (A22 * (Q @ BR22)).sum()
         a = (AR22.T * BR22).sum()
         b = b21 + b12 + b22a + b22b
         # critical point of ax^2 + bx + c is at x = -d/(2*e)
@@ -475,7 +475,7 @@ def _quadratic_assignment_faq_ot(
     # [1] Algorithm 1 Line 7 - end main loop
 
     # [1] Algorithm 1 Line 8 - project onto the set of permutation matrices
-#     print(P)
+    #     print(P)
     _, col = linear_sum_assignment(-P)
     perm = np.concatenate((np.arange(n_seeds), col + n_seeds))
 
@@ -489,63 +489,16 @@ def _quadratic_assignment_faq_ot(
     return OptimizeResult(res)
 
 
-def _check_init_input(P0, n):
-    row_sum = np.sum(P0, axis=0)
-    col_sum = np.sum(P0, axis=1)
-    tol = 1e-3
-    msg = None
-    if P0.shape != (n, n):
-        msg = "`P0` matrix must have shape m' x m', where m'=n-m"
-    elif (
-        (~np.isclose(row_sum, 1, atol=tol)).any()
-        or (~np.isclose(col_sum, 1, atol=tol)).any()
-        or (P0 < 0).any()
-    ):
-        msg = "`P0` matrix must be doubly stochastic"
-    if msg is not None:
-        raise ValueError(msg)
-
-
-def _split_matrix(X, n):
-    # definitions according to Seeded Graph Matching [2].
-    upper, lower = X[:n], X[n:]
-    return upper[:, :n], upper[:, n:], lower[:, :n], lower[:, n:]
-
 # from numba import jit
 # @jit(nopython=True)
 def alap(P, n, maximize, reg, tol):
     power = 1 if maximize else -1
-    lamb = reg/np.max(np.abs(P))
-    P = np.exp(lamb*power*P)
+    lamb = reg / np.max(np.abs(P))
+    P = np.exp(lamb * power * P)
 
-#     ones = np.ones(n)
-#     P_eps = sinkhorn(ones, ones, P, power/lamb, stopInnerThr=5e-02) # * (P > np.log(1/n)/lamb)
-    
+    #     ones = np.ones(n)
+    #     P_eps = sinkhorn(ones, ones, P, power/lamb, stopInnerThr=5e-02) # * (P > np.log(1/n)/lamb)
+
     P_eps = _doubly_stochastic(P, tol)
-
-    return P_eps
-
-
-def _doubly_stochastic(P, tol=1e-3):
-    # Adapted from @btaba implementation
-    # https://github.com/btaba/sinkhorn_knopp
-    # of Sinkhorn-Knopp algorithm
-    # https://projecteuclid.org/euclid.pjm/1102992505
-
-    max_iter = 1000
-    c = 1 / P.sum(axis=0)
-    r = 1 / (P @ c)
-    P_eps = P
-
-    for it in range(max_iter):
-        if (np.abs(P_eps.sum(axis=1) - 1) < tol).all() and (
-            np.abs(P_eps.sum(axis=0) - 1) < tol
-        ).all():
-            # All column/row sums ~= 1 within threshold
-            break
-
-        c = 1 / (r @ P)
-        r = 1 / (P @ c)
-        P_eps = r[:, None] * P * c
 
     return P_eps
