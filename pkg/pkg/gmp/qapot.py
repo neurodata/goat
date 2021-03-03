@@ -218,8 +218,9 @@ def _quadratic_assignment_faq_ot(
     shuffle_input=False,
     maxiter=30,
     tol=0.03,
-    reg = 100,
-    thr = 5e-2,
+    reg=100,
+    thr=5e-2,
+    grad_thresh=0,
 ):
     r"""
     Solve the quadratic assignment problem (approximately).
@@ -440,9 +441,11 @@ def _quadratic_assignment_faq_ot(
     for n_iter in range(1, maxiter + 1):
         # [1] Algorithm 1 Line 3 - compute the gradient of f(P) = -tr(APB^tP^t)
         grad_fp = const_sum + A22 @ P @ B22.T + A22.T @ P @ B22
+        if grad_thresh > 0:
+            grad_fp = grad_fp * (grad_fp > grad_thresh)
         # [1] Algorithm 1 Line 4 - get direction Q by solving Eq. 8
         Q = alap(grad_fp, n_unseed, maximize, reg, thr)
-#         Q = np.eye(n_unseed)[cols]
+        #         Q = np.eye(n_unseed)[cols]
 
         # [1] Algorithm 1 Line 5 - compute the step size
         # Noting that e.g. trace(Ax) = trace(A)*x, expand and re-collect

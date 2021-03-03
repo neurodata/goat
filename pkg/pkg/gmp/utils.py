@@ -35,14 +35,14 @@ def _doubly_stochastic(P, tol=1e-3, max_iter=1000):
     P_eps = P
 
     for it in range(max_iter):
-        if (np.abs(P_eps.sum(axis=1) - 1) < tol).all() and (
-            np.abs(P_eps.sum(axis=0) - 1) < tol
-        ).all():
-            # All column/row sums ~= 1 within threshold
-            break
+        if it % 100 == 0:  # only check every so often to speed up
+            if (np.abs(P_eps.sum(axis=1) - 1) < tol).all() and (
+                np.abs(P_eps.sum(axis=0) - 1) < tol
+            ).all():
+                # All column/row sums ~= 1 within threshold
+                break
 
         c = 1 / (r @ P)
         r = 1 / (P @ c)
         P_eps = r[:, None] * P * c
-
     return P_eps
