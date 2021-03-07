@@ -5,3 +5,8 @@
 - part: QAPLIB
   chapters:
   - file: qaplib_figs
+  
+- part: ER Simulation
+  chapters:
+  - file: er_time
+  
