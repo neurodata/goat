@@ -13,3 +13,8 @@
 - part: rho-SBM simulations
   chapters:
   - file: rho_sbm
+
+- part: Human Connectome Matching
+  chapters:
+  - file: human_connectome
+  
