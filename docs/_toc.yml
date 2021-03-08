@@ -10,3 +10,6 @@
   chapters:
   - file: er_time
   
+- part: rho-SBM simulations
+  chapters:
+  - file: rho_sbm
