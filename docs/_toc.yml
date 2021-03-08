@@ -2,6 +2,10 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 - file: outline
 
+- part: Motivation: Expository demonstration
+  chapters:
+  - file: expos_fig
+  
 - part: QAPLIB
   chapters:
   - file: qaplib_figs
