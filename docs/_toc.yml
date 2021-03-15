@@ -22,3 +22,7 @@
   chapters:
   - file: human_connectome
   
+- part: SGM Fig 2
+  chapters:
+  - file: sgm
+  
