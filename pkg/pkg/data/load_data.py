@@ -110,3 +110,14 @@ def load_data(graph_type, base_path=None, version=None):
         graph.add_node(node)
 
     return Bunch(graph=graph, adj=adj, meta=meta)
+
+
+def load_c_elegans():
+    cell_loc = DATA_PATH / "elegans/chem_multi_cells.csv"
+    male_loc = DATA_PATH / "elegans/male_chem_A_multi.csv"
+    herm_loc = DATA_PATH / "elegans/herm_chem_A_multi.csv"
+
+    cell_names = pd.read_csv(cell_loc, header=None).values
+    male_adj = pd.read_csv(male_loc, header=None).values
+    herm_adj = pd.read_csv(herm_loc, header=None).values
+    return male_adj, herm_adj, cell_names

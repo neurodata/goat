@@ -1,0 +1,627 @@
+name,type1,type2,type3,whitetype,sex,pharynx,homolog,sidepaired
+ASJL,sensory,SN6,na,na,both,nonpharynx,ASJR,left
+ASJR,sensory,SN6,na,na,both,nonpharynx,ASJL,right
+ASKL,sensory,SN6,na,na,both,nonpharynx,ASKR,left
+ASKR,sensory,SN6,na,na,both,nonpharynx,ASKL,right
+ASGL,sensory,SN6,na,na,both,nonpharynx,ASGR,left
+ASGR,sensory,SN6,na,na,both,nonpharynx,ASGL,right
+ASIL,sensory,SN6,na,na,both,nonpharynx,ASIR,left
+ASIR,sensory,SN6,na,na,both,nonpharynx,ASIL,right
+AFDL,sensory,SN6,na,na,both,nonpharynx,AFDR,left
+AFDR,sensory,SN6,na,na,both,nonpharynx,AFDL,right
+AWAL,sensory,SN6,na,na,both,nonpharynx,AWAR,left
+AWAR,sensory,SN6,na,na,both,nonpharynx,AWAL,right
+AWBL,sensory,SN6,na,na,both,nonpharynx,AWBR,left
+AWBR,sensory,SN6,na,na,both,nonpharynx,AWBL,right
+AWCL,sensory,SN6,na,na,both,nonpharynx,AWCR,left
+AWCR,sensory,SN6,na,na,both,nonpharynx,AWCL,right
+ASEL,sensory,SN6,na,na,both,nonpharynx,ASER,left
+ASER,sensory,SN6,na,na,both,nonpharynx,ASEL,right
+ADFL,sensory,SN6,na,na,both,nonpharynx,ADFR,left
+ADFR,sensory,SN6,na,na,both,nonpharynx,ADFL,right
+ASHL,sensory,SN5,na,na,both,nonpharynx,ASHR,left
+ASHR,sensory,SN5,na,na,both,nonpharynx,ASHL,right
+ADLL,sensory,SN5,na,na,both,nonpharynx,ADLR,left
+ADLR,sensory,SN5,na,na,both,nonpharynx,ADLL,right
+BAGL,sensory,SN4,na,na,both,nonpharynx,BAGR,left
+BAGR,sensory,SN4,na,na,both,nonpharynx,BAGL,right
+URXL,sensory,SN4,na,na,both,nonpharynx,URXR,left
+URXR,sensory,SN4,na,na,both,nonpharynx,URXL,right
+ALNL,sensory,SN4,na,na,both,nonpharynx,ALNR,left
+ALNR,sensory,SN4,na,na,both,nonpharynx,ALNL,right
+PLNL,sensory,SN4,na,na,both,nonpharynx,PLNR,left
+PLNR,sensory,SN4,na,na,both,nonpharynx,PLNL,right
+SDQL,sensory,SN4,na,interneuron,both,nonpharynx,SDQR,left
+SDQR,sensory,SN4,na,interneuron,both,nonpharynx,SDQL,right
+AQR,sensory,SN4,na,na,both,nonpharynx,na,na
+PQR,sensory,SN4,na,na,both,nonpharynx,na,na
+ADEL,sensory,SN3,na,na,both,nonpharynx,ADER,left
+ADER,sensory,SN3,na,na,both,nonpharynx,ADEL,right
+PDEL,sensory,SN3,na,na,both,nonpharynx,PDER,left
+PDER,sensory,SN3,na,na,both,nonpharynx,PDEL,right
+ALML,sensory,SN3,na,na,both,nonpharynx,ALMR,left
+ALMR,sensory,SN3,na,na,both,nonpharynx,ALML,right
+AVM,sensory,SN3,na,na,both,nonpharynx,na,na
+PVM,sensory,SN3,na,na,both,nonpharynx,na,na
+PLML,sensory,SN3,na,na,both,nonpharynx,PLMR,left
+PLMR,sensory,SN3,na,na,both,nonpharynx,PLML,right
+FLPL,sensory,SN3,na,na,both,nonpharynx,FLPR,left
+FLPR,sensory,SN3,na,na,both,nonpharynx,FLPL,right
+DVA,sensory,SN3,na,interneuron,both,nonpharynx,na,na
+PVDL,sensory,SN3,na,na,both,nonpharynx,PVDR,left
+PVDR,sensory,SN3,na,na,both,nonpharynx,PVDL,right
+PHAL,sensory,SN2,na,na,both,nonpharynx,PHAR,left
+PHAR,sensory,SN2,na,na,both,nonpharynx,PHAL,right
+PHBL,sensory,SN2,na,na,both,nonpharynx,PHBR,left
+PHBR,sensory,SN2,na,na,both,nonpharynx,PHBL,right
+PHCL,sensory,SN2,na,na,both,nonpharynx,PHCR,left
+PHCR,sensory,SN2,na,na,both,nonpharynx,PHCL,right
+IL2DL,sensory,SN1,na,na,both,nonpharynx,IL2DR,left
+IL2DR,sensory,SN1,na,na,both,nonpharynx,IL2DL,right
+IL2L,sensory,SN1,na,na,both,nonpharynx,IL2R,left
+IL2R,sensory,SN1,na,na,both,nonpharynx,IL2L,right
+IL2VL,sensory,SN1,na,na,both,nonpharynx,IL2VR,left
+IL2VR,sensory,SN1,na,na,both,nonpharynx,IL2VL,right
+CEPDL,sensory,SN1,na,na,both,nonpharynx,CEPDR,left
+CEPDR,sensory,SN1,na,na,both,nonpharynx,CEPDL,right
+CEPVL,sensory,SN1,na,na,both,nonpharynx,CEPVR,left
+CEPVR,sensory,SN1,na,na,both,nonpharynx,CEPVL,right
+OLQDL,sensory,SN1,na,na,both,nonpharynx,OLQDR,left
+OLQDR,sensory,SN1,na,na,both,nonpharynx,OLQDL,right
+OLQVL,sensory,SN1,na,na,both,nonpharynx,OLQVR,left
+OLQVR,sensory,SN1,na,na,both,nonpharynx,OLQVL,right
+URYDL,sensory,SN1,na,na,both,nonpharynx,URYDR,left
+URYDR,sensory,SN1,na,na,both,nonpharynx,URYDL,right
+URYVL,sensory,SN1,na,na,both,nonpharynx,URYVR,left
+URYVR,sensory,SN1,na,na,both,nonpharynx,URYVL,right
+OLLL,sensory,SN1,na,na,both,nonpharynx,OLLR,left
+OLLR,sensory,SN1,na,na,both,nonpharynx,OLLL,right
+IL1DL,sensory,SN1,na,na,both,nonpharynx,IL1DR,left
+IL1DR,sensory,SN1,na,na,both,nonpharynx,IL1DL,right
+IL1L,sensory,SN1,na,na,both,nonpharynx,IL1R,left
+IL1R,sensory,SN1,na,na,both,nonpharynx,IL1L,right
+IL1VL,sensory,SN1,na,na,both,nonpharynx,IL1VR,left
+IL1VR,sensory,SN1,na,na,both,nonpharynx,IL1VL,right
+AIML,interneuron,category 4 interneuron,na,na,both,nonpharynx,AIMR,left
+AIMR,interneuron,category 4 interneuron,na,na,both,nonpharynx,AIML,right
+AINL,interneuron,category 4 interneuron,na,na,both,nonpharynx,AINR,left
+AINR,interneuron,category 4 interneuron,na,na,both,nonpharynx,AINL,right
+RIH,interneuron,category 4 interneuron,na,na,both,nonpharynx,na,na
+URBL,interneuron,category 4 interneuron,na,na,both,nonpharynx,URBR,left
+URBR,interneuron,category 4 interneuron,na,na,both,nonpharynx,URBL,right
+RIR,interneuron,category 4 interneuron,na,na,both,nonpharynx,na,na
+PVQL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,PVQR,left
+PVQR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,PVQL,right
+ALA,interneuron,layer 3 interneuron,na,na,both,nonpharynx,na,na
+BDUL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,BDUR,left
+BDUR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,BDUL,right
+AIYL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AIYR,left
+AIYR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AIYL,right
+AIAL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AIAR,left
+AIAR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AIAL,right
+AUAL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AUAR,left
+AUAR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AUAL,right
+AIZL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AIZR,left
+AIZR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AIZL,right
+RIS,interneuron,layer 3 interneuron,na,na,both,nonpharynx,na,na
+ADAL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,ADAR,left
+ADAR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,ADAL,right
+RIFL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,RIFR,left
+RIFR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,RIFL,right
+PVR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,na,na
+AVFL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AVFR,left
+AVFR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AVFL,right
+AVHL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AVHR,left
+AVHR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,AVHL,right
+PVPL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,PVPR,left
+PVPR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,PVPL,right
+PVNL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,PVNR,left
+PVNR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,PVNL,right
+AVG,interneuron,layer 3 interneuron,na,na,both,nonpharynx,na,na
+LUAL,interneuron,layer 3 interneuron,na,na,both,nonpharynx,LUAR,left
+LUAR,interneuron,layer 3 interneuron,na,na,both,nonpharynx,LUAL,right
+DVB,interneuron,layer 3 interneuron,na,na,both,nonpharynx,na,na
+RIBL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RIBR,left
+RIBR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RIBL,right
+AIBL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AIBR,left
+AIBR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AIBL,right
+RIGL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RIGR,left
+RIGR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RIGL,right
+RMGL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RMGR,left
+RMGR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RMGL,right
+RICL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RICR,left
+RICR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RICL,right
+SAADR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,SAADL,right
+SAAVL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,SAAVR,left
+SAADL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,SAADR,left
+SAAVR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,SAAVL,right
+RMFL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RMFR,left
+RMFR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,RMFL,right
+AVKL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AVKR,left
+AVKR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AVKL,right
+DVC,interneuron,layer 2 interneuron,na,na,both,nonpharynx,na,na
+AVJR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AVJL,right
+AVJL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AVJR,left
+PVT,interneuron,layer 2 interneuron,na,na,both,nonpharynx,na,na
+AVDL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AVDR,left
+AVDR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,AVDL,right
+AVL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,na,na
+PVWL,interneuron,layer 2 interneuron,na,na,both,nonpharynx,PVWR,left
+PVWR,interneuron,layer 2 interneuron,na,na,both,nonpharynx,PVWL,right
+RIAL,interneuron,layer 1 interneuron,na,na,both,nonpharynx,RIAR,left
+RIAR,interneuron,layer 1 interneuron,na,na,both,nonpharynx,RIAL,right
+RIML,interneuron,layer 1 interneuron,na,motorneuron,both,nonpharynx,RIMR,left
+RIMR,interneuron,layer 1 interneuron,na,motorneuron,both,nonpharynx,RIML,right
+AVEL,interneuron,layer 1 interneuron,na,na,both,nonpharynx,AVER,left
+AVER,interneuron,layer 1 interneuron,na,na,both,nonpharynx,AVEL,right
+RID,interneuron,layer 1 interneuron,na,na,both,nonpharynx,na,na
+AVBL,interneuron,layer 1 interneuron,na,na,both,nonpharynx,AVBR,left
+AVBR,interneuron,layer 1 interneuron,na,na,both,nonpharynx,AVBL,right
+AVAL,interneuron,layer 1 interneuron,na,na,both,nonpharynx,AVAR,left
+AVAR,interneuron,layer 1 interneuron,na,na,both,nonpharynx,AVAL,right
+PVCL,interneuron,layer 1 interneuron,na,na,both,nonpharynx,PVCR,left
+PVCR,interneuron,layer 1 interneuron,na,na,both,nonpharynx,PVCL,right
+RIPL,interneuron,linker to pharynx,na,na,both,linker,RIPR,left
+RIPR,interneuron,linker to pharynx,na,na,both,linker,RIPL,right
+RMEL,motorneuron,head motor neuron,na,na,both,nonpharynx,RMER,left
+RMER,motorneuron,head motor neuron,na,na,both,nonpharynx,RMEL,right
+RMED,motorneuron,head motor neuron,na,na,both,nonpharynx,na,na
+RMEV,motorneuron,head motor neuron,na,na,both,nonpharynx,na,na
+URADL,motorneuron,head motor neuron,na,na,both,nonpharynx,URADR,left
+URADR,motorneuron,head motor neuron,na,na,both,nonpharynx,URADL,right
+URAVL,motorneuron,head motor neuron,na,na,both,nonpharynx,URAVR,left
+URAVR,motorneuron,head motor neuron,na,na,both,nonpharynx,URAVL,right
+RMDDL,motorneuron,head motor neuron,na,na,both,nonpharynx,RMDDR,left
+RMDDR,motorneuron,head motor neuron,na,na,both,nonpharynx,RMDDL,right
+RMDL,motorneuron,head motor neuron,na,na,both,nonpharynx,RMDR,left
+RMDR,motorneuron,head motor neuron,na,na,both,nonpharynx,RMDL,right
+RMDVL,motorneuron,head motor neuron,na,na,both,nonpharynx,RMDVR,left
+RMDVR,motorneuron,head motor neuron,na,na,both,nonpharynx,RMDVL,right
+RMHL,motorneuron,head motor neuron,na,na,both,nonpharynx,RMHR,left
+RMHR,motorneuron,head motor neuron,na,na,both,nonpharynx,RMHL,right
+RIVL,motorneuron,head motor neuron,na,na,both,nonpharynx,RIVR,left
+RIVR,motorneuron,head motor neuron,na,na,both,nonpharynx,RIVL,right
+SABD,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,na,na
+SABVL,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SABVR,left
+SABVR,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SABVL,right
+SMDDL,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMDDR,left
+SMDDR,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMDDL,right
+SMDVL,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMDVR,left
+SMDVR,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMDVL,right
+SMBDL,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMBDR,left
+SMBDR,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMBDL,right
+SMBVL,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMBVR,left
+SMBVR,motorneuron,sublateral motor neuron,na,na,both,nonpharynx,SMBVL,right
+SIBDL,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIBDR,left
+SIBDR,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIBDL,right
+SIBVL,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIBVR,left
+SIBVR,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIBVL,right
+SIADL,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIADR,left
+SIADR,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIADL,right
+SIAVL,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIAVR,left
+SIAVR,motorneuron,sublateral motor neuron,na,interneuron,both,nonpharynx,SIAVL,right
+DA01,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA02,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA03,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA04,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA05,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA06,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA07,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA08,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DA09,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+PDA,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DB01,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DB02,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DB03,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DB04,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DB05,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DB06,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DB07,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS01,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS02,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS03,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS04,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS05,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS06,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS07,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS08,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS09,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS10,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+AS11,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+PDB,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DD01,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DD02,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DD03,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DD04,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DD05,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DD06,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA01,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA02,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA03,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA04,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA05,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA06,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA07,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA08,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA09,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA10,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA11,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VA12,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB01,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB02,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB03,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB04,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB05,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB06,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB07,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB08,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB09,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB10,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VB11,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD01,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD02,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD03,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD04,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD05,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD06,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD07,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD08,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD09,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD10,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD11,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD12,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+VD13,motorneuron,ventral cord motor neuron,na,na,both,nonpharynx,na,na
+DBWML1,endorgan,muscle,na,na,both,nonpharynx,DBWMR1,left
+DBWML2,endorgan,muscle,na,na,both,nonpharynx,DBWMR2,left
+DBWML3,endorgan,muscle,na,na,both,nonpharynx,DBWMR3,left
+DBWML4,endorgan,muscle,na,na,both,nonpharynx,DBWMR4,left
+DBWML5,endorgan,muscle,na,na,both,nonpharynx,DBWMR5,left
+DBWML6,endorgan,muscle,na,na,both,nonpharynx,DBWMR6,left
+DBWML7,endorgan,muscle,na,na,both,nonpharynx,DBWMR7,left
+DBWMR1,endorgan,muscle,na,na,both,nonpharynx,DBWML1,right
+DBWMR2,endorgan,muscle,na,na,both,nonpharynx,DBWML2,right
+DBWMR3,endorgan,muscle,na,na,both,nonpharynx,DBWML3,right
+DBWMR4,endorgan,muscle,na,na,both,nonpharynx,DBWML4,right
+DBWMR5,endorgan,muscle,na,na,both,nonpharynx,DBWML5,right
+DBWMR6,endorgan,muscle,na,na,both,nonpharynx,DBWML6,right
+DBWMR7,endorgan,muscle,na,na,both,nonpharynx,DBWML7,right
+VBWML1,endorgan,muscle,na,na,both,nonpharynx,VBWMR1,left
+VBWML2,endorgan,muscle,na,na,both,nonpharynx,VBWMR2,left
+VBWML3,endorgan,muscle,na,na,both,nonpharynx,VBWMR3,left
+VBWML4,endorgan,muscle,na,na,both,nonpharynx,VBWMR4,left
+VBWML5,endorgan,muscle,na,na,both,nonpharynx,VBWMR5,left
+VBWML6,endorgan,muscle,na,na,both,nonpharynx,VBWMR6,left
+VBWML7,endorgan,muscle,na,na,both,nonpharynx,VBWMR7,left
+VBWMR1,endorgan,muscle,na,na,both,nonpharynx,VBWML1,right
+VBWMR2,endorgan,muscle,na,na,both,nonpharynx,VBWML2,right
+VBWMR3,endorgan,muscle,na,na,both,nonpharynx,VBWML3,right
+VBWMR4,endorgan,muscle,na,na,both,nonpharynx,VBWML4,right
+VBWMR5,endorgan,muscle,na,na,both,nonpharynx,VBWML5,right
+VBWMR6,endorgan,muscle,na,na,both,nonpharynx,VBWML6,right
+VBWMR7,endorgan,muscle,na,na,both,nonpharynx,VBWML7,right
+DBWML8,endorgan,muscle,na,na,both,nonpharynx,DBWMR8,left
+DBWML9,endorgan,muscle,na,na,both,nonpharynx,DBWMR9,left
+DBWML10,endorgan,muscle,na,na,both,nonpharynx,DBWMR10,left
+DBWML11,endorgan,muscle,na,na,both,nonpharynx,DBWMR11,left
+DBWML12,endorgan,muscle,na,na,both,nonpharynx,DBWMR12,left
+DBWML13,endorgan,muscle,na,na,both,nonpharynx,DBWMR13,left
+DBWML14,endorgan,muscle,na,na,both,nonpharynx,DBWMR14,left
+DBWML15,endorgan,muscle,na,na,both,nonpharynx,DBWMR15,left
+DBWML16,endorgan,muscle,na,na,both,nonpharynx,DBWMR16,left
+DBWML17,endorgan,muscle,na,na,both,nonpharynx,DBWMR17,left
+DBWML18,endorgan,muscle,na,na,both,nonpharynx,DBWMR18,left
+DBWML19,endorgan,muscle,na,na,both,nonpharynx,DBWMR19,left
+DBWML20,endorgan,muscle,na,na,both,nonpharynx,DBWMR20,left
+DBWML21,endorgan,muscle,na,na,both,nonpharynx,DBWMR21,left
+DBWML22,endorgan,muscle,na,na,both,nonpharynx,DBWMR22,left
+DBWML23,endorgan,muscle,na,na,both,nonpharynx,DBWMR23,left
+DBWML24,endorgan,muscle,na,na,both,nonpharynx,DBWMR24,left
+DBWMR8,endorgan,muscle,na,na,both,nonpharynx,DBWML8,right
+DBWMR9,endorgan,muscle,na,na,both,nonpharynx,DBWML9,right
+DBWMR10,endorgan,muscle,na,na,both,nonpharynx,DBWML10,right
+DBWMR11,endorgan,muscle,na,na,both,nonpharynx,DBWML11,right
+DBWMR12,endorgan,muscle,na,na,both,nonpharynx,DBWML12,right
+DBWMR13,endorgan,muscle,na,na,both,nonpharynx,DBWML13,right
+DBWMR14,endorgan,muscle,na,na,both,nonpharynx,DBWML14,right
+DBWMR15,endorgan,muscle,na,na,both,nonpharynx,DBWML15,right
+DBWMR16,endorgan,muscle,na,na,both,nonpharynx,DBWML16,right
+DBWMR17,endorgan,muscle,na,na,both,nonpharynx,DBWML17,right
+DBWMR18,endorgan,muscle,na,na,both,nonpharynx,DBWML18,right
+DBWMR19,endorgan,muscle,na,na,both,nonpharynx,DBWML19,right
+DBWMR20,endorgan,muscle,na,na,both,nonpharynx,DBWML20,right
+DBWMR21,endorgan,muscle,na,na,both,nonpharynx,DBWML21,right
+DBWMR22,endorgan,muscle,na,na,both,nonpharynx,DBWML22,right
+DBWMR23,endorgan,muscle,na,na,both,nonpharynx,DBWML23,right
+DBWMR24,endorgan,muscle,na,na,both,nonpharynx,DBWML24,right
+VBWML8,endorgan,muscle,na,na,both,nonpharynx,VBWMR8,left
+VBWML9,endorgan,muscle,na,na,both,nonpharynx,VBWMR9,left
+VBWML10,endorgan,muscle,na,na,both,nonpharynx,VBWMR10,left
+VBWML11,endorgan,muscle,na,na,both,nonpharynx,VBWMR11,left
+VBWML12,endorgan,muscle,na,na,both,nonpharynx,VBWMR12,left
+VBWML13,endorgan,muscle,na,na,both,nonpharynx,VBWMR13,left
+VBWML14,endorgan,muscle,na,na,both,nonpharynx,VBWMR14,left
+VBWML15,endorgan,muscle,na,na,both,nonpharynx,VBWMR15,left
+VBWML16,endorgan,muscle,na,na,both,nonpharynx,VBWMR16,left
+VBWML17,endorgan,muscle,na,na,both,nonpharynx,VBWMR17,left
+VBWML18,endorgan,muscle,na,na,both,nonpharynx,VBWMR18,left
+VBWML19,endorgan,muscle,na,na,both,nonpharynx,VBWMR19,left
+VBWML20,endorgan,muscle,na,na,both,nonpharynx,VBWMR20,left
+VBWML21,endorgan,muscle,na,na,both,nonpharynx,VBWMR21,left
+VBWML22,endorgan,muscle,na,na,both,nonpharynx,VBWMR22,left
+VBWML23,endorgan,muscle,na,na,both,nonpharynx,VBWMR23,left
+VBWMR8,endorgan,muscle,na,na,both,nonpharynx,VBWML8,right
+VBWMR9,endorgan,muscle,na,na,both,nonpharynx,VBWML9,right
+VBWMR10,endorgan,muscle,na,na,both,nonpharynx,VBWML10,right
+VBWMR11,endorgan,muscle,na,na,both,nonpharynx,VBWML11,right
+VBWMR12,endorgan,muscle,na,na,both,nonpharynx,VBWML12,right
+VBWMR13,endorgan,muscle,na,na,both,nonpharynx,VBWML13,right
+VBWMR14,endorgan,muscle,na,na,both,nonpharynx,VBWML14,right
+VBWMR15,endorgan,muscle,na,na,both,nonpharynx,VBWML15,right
+VBWMR16,endorgan,muscle,na,na,both,nonpharynx,VBWML16,right
+VBWMR17,endorgan,muscle,na,na,both,nonpharynx,VBWML17,right
+VBWMR18,endorgan,muscle,na,na,both,nonpharynx,VBWML18,right
+VBWMR19,endorgan,muscle,na,na,both,nonpharynx,VBWML19,right
+VBWMR20,endorgan,muscle,na,na,both,nonpharynx,VBWML20,right
+VBWMR21,endorgan,muscle,na,na,both,nonpharynx,VBWML21,right
+VBWMR22,endorgan,muscle,na,na,both,nonpharynx,VBWML22,right
+VBWMR23,endorgan,muscle,na,na,both,nonpharynx,VBWML23,right
+VBWMR24,endorgan,muscle,na,na,both,nonpharynx,na,na
+CEPSHDL,endorgan,glial,na,na,both,nonpharynx,CEPSHDR,left
+CEPSHDR,endorgan,glial,na,na,both,nonpharynx,CEPSHDL,right
+CEPSHVL,endorgan,glial,na,na,both,nonpharynx,CEPSHVR,left
+CEPSHVR,endorgan,glial,na,na,both,nonpharynx,CEPSHVL,right
+GLRDL,endorgan,glial,na,na,both,nonpharynx,GLRDR,left
+GLRDR,endorgan,glial,na,na,both,nonpharynx,GLRDL,right
+GLRL,endorgan,glial,na,na,both,nonpharynx,GLRR,left
+GLRR,endorgan,glial,na,na,both,nonpharynx,GLRL,right
+GLRVL,endorgan,glial,na,na,both,nonpharynx,GLRVR,left
+GLRVR,endorgan,glial,na,na,both,nonpharynx,GLRVL,right
+CANL,endorgan,neuron,na,na,both,nonpharynx,CANR,left
+CANR,endorgan,neuron,na,na,both,nonpharynx,CANL,right
+EXC_GL,endorgan,excretory,na,na,both,nonpharynx,na,na
+HMC,endorgan,head mesodermal cell,na,na,both,nonpharynx,na,na
+HYP,endorgan,hypodermis,na,na,both,nonpharynx,na,na
+INT,endorgan,intestine,na,na,both,nonpharynx,na,na
+MU_INTL,endorgan,muscle,na,na,both,nonpharynx,MU_INTR,left
+MU_INTR,endorgan,muscle,na,na,both,nonpharynx,MU_INTL,right
+MU_ANAL,endorgan,muscle,na,na,both,nonpharynx,na,na
+MU_SPHINCTER,endorgan,muscle,na,na,both,nonpharynx,na,na
+I1L,interneuron,na,na,na,both,pharynx,I1R,left
+I1R,interneuron,na,na,na,both,pharynx,I1L,right
+I2L,interneuron,na,na,na,both,pharynx,I2R,left
+I2R,interneuron,na,na,na,both,pharynx,I2L,right
+I3,interneuron,na,na,na,both,pharynx,na,na
+I4,interneuron,na,na,na,both,pharynx,na,na
+I5,interneuron,na,na,na,both,pharynx,na,na
+I6,interneuron,na,na,na,both,pharynx,na,na
+M1,motorneuron,na,na,na,both,pharynx,na,na
+M2L,motorneuron,na,na,na,both,pharynx,M2R,left
+M2R,motorneuron,na,na,na,both,pharynx,M2L,right
+M3L,motorneuron,na,na,na,both,pharynx,M3R,left
+M3R,motorneuron,na,na,na,both,pharynx,M3L,right
+M4,motorneuron,na,na,na,both,pharynx,na,na
+M5,motorneuron,na,na,na,both,pharynx,na,na
+MCL,motorneuron,na,na,na,both,pharynx,MCR,left
+MCR,motorneuron,na,na,na,both,pharynx,MCL,right
+MI,motorneuron,na,na,na,both,pharynx,na,na
+NSML,interneuron,na,na,na,both,pharynx,NSMR,left
+NSMR,interneuron,na,na,na,both,pharynx,NSML,right
+PM1,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+PM2D,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+PM2VL,endorgan,muscle,myoepithelium,na,both,pharynx,PM2VR,left
+PM2VR,endorgan,muscle,myoepithelium,na,both,pharynx,PM2VL,right
+PM3D,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+PM3VL,endorgan,muscle,myoepithelium,na,both,pharynx,PM3VR,left
+PM3VR,endorgan,muscle,myoepithelium,na,both,pharynx,PM3VL,right
+PM4D,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+PM4VL,endorgan,muscle,myoepithelium,na,both,pharynx,PM4VR,left
+PM4VR,endorgan,muscle,myoepithelium,na,both,pharynx,PM4VL,right
+PM5D,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+PM5VL,endorgan,muscle,myoepithelium,na,both,pharynx,PM5VR,left
+PM5VR,endorgan,muscle,myoepithelium,na,both,pharynx,PM5VL,right
+PM6D,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+PM6VL,endorgan,muscle,myoepithelium,na,both,pharynx,PM6VR,left
+PM6VR,endorgan,muscle,myoepithelium,na,both,pharynx,PM6VL,right
+PM7D,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+PM7VL,endorgan,muscle,myoepithelium,na,both,pharynx,PM7VR,left
+PM7VR,endorgan,muscle,myoepithelium,na,both,pharynx,PM7VL,right
+PM8,endorgan,muscle,myoepithelium,na,both,pharynx,na,na
+MC1DL,endorgan,marginal,na,na,both,pharynx,MC1DR,left
+MC1DR,endorgan,marginal,na,na,both,pharynx,MC1DL,right
+MC1V,endorgan,marginal,na,na,both,pharynx,na,na
+MC2DL,endorgan,marginal,na,na,both,pharynx,MC2DR,left
+MC2DR,endorgan,marginal,na,na,both,pharynx,MC2DL,right
+MC2V,endorgan,marginal,na,na,both,pharynx,na,na
+MC3DL,endorgan,marginal,na,na,both,pharynx,MC3DR,left
+MC3DR,endorgan,marginal,na,na,both,pharynx,MC3DL,right
+MC3V,endorgan,marginal,na,na,both,pharynx,na,na
+E1D,endorgan,epithelium,na,na,both,pharynx,na,na
+E1VL,endorgan,epithelium,na,na,both,pharynx,E1VR,left
+E1VR,endorgan,epithelium,na,na,both,pharynx,E1VL,right
+E2DL,endorgan,epithelium,na,na,both,pharynx,E2DR,left
+E2DR,endorgan,epithelium,na,na,both,pharynx,E2DL,right
+E2V,endorgan,epithelium,na,na,both,pharynx,na,na
+E3D,endorgan,epithelium,na,na,both,pharynx,na,na
+E3VL,endorgan,epithelium,na,na,both,pharynx,E3VR,left
+E3VR,endorgan,epithelium,na,na,both,pharynx,E3VL,right
+G1P,endorgan,glial,na,na,both,pharynx,na,na
+G1AL,endorgan,glial,na,na,both,pharynx,G1AR,left
+G1AR,endorgan,glial,na,na,both,pharynx,G1AL,right
+G2L,endorgan,glial,na,na,both,pharynx,G2R,left
+G2R,endorgan,glial,na,na,both,pharynx,G2L,right
+BM,endorgan,basement membrane,na,na,both,pharynx,na,na
+HSNL,motorneuron,na,na,na,herm,nonpharynx,HSNR,left
+HSNR,motorneuron,na,na,na,herm,nonpharynx,HSNL,right
+VC01,motorneuron,na,na,na,herm,nonpharynx,na,na
+VC02,motorneuron,na,na,na,herm,nonpharynx,na,na
+VC03,motorneuron,na,na,na,herm,nonpharynx,na,na
+VC04,motorneuron,na,na,na,herm,nonpharynx,na,na
+VC05,motorneuron,na,na,na,herm,nonpharynx,na,na
+VC06,motorneuron,na,na,na,herm,nonpharynx,na,na
+UM2AL,endorgan,muscle,sex,na,herm,nonpharynx,UM2AR,left
+UM2AR,endorgan,muscle,sex,na,herm,nonpharynx,UM2AL,right
+UM1AL,endorgan,muscle,sex,na,herm,nonpharynx,UM1AR,left
+UM1AR,endorgan,muscle,sex,na,herm,nonpharynx,UM1AL,right
+UM1PL,endorgan,muscle,sex,na,herm,nonpharynx,UM1PR,left
+UM1PR,endorgan,muscle,sex,na,herm,nonpharynx,UM1PL,right
+UM2PL,endorgan,muscle,sex,na,herm,nonpharynx,UM2PR,left
+UM2PR,endorgan,muscle,sex,na,herm,nonpharynx,UM2PL,right
+VM2AL,endorgan,muscle,sex,na,herm,nonpharynx,VM2AR,left
+VM2AR,endorgan,muscle,sex,na,herm,nonpharynx,VM2AL,right
+VM1AL,endorgan,muscle,sex,na,herm,nonpharynx,VM1AR,left
+VM1AR,endorgan,muscle,sex,na,herm,nonpharynx,VM1AL,right
+VM1PL,endorgan,muscle,sex,na,herm,nonpharynx,VM1PR,left
+VM1PR,endorgan,muscle,sex,na,herm,nonpharynx,VM1PL,right
+VM2PL,endorgan,muscle,sex,na,herm,nonpharynx,VM2PR,left
+VM2PR,endorgan,muscle,sex,na,herm,nonpharynx,VM2PL,right
+CEMDL,sensory,na,na,na,male,nonpharynx,CEMDR,left
+CEMDR,sensory,na,na,na,male,nonpharynx,CEMDL,right
+CEMVL,sensory,na,na,na,male,nonpharynx,CEMVR,left
+CEMVR,sensory,na,na,na,male,nonpharynx,CEMVL,right
+MCML,interneuron,na,na,na,male,nonpharynx,MCMR,left
+MCMR,interneuron,na,na,na,male,nonpharynx,MCML,right
+R1AL,sensory,na,na,na,male,nonpharynx,R1AR,left
+R1AR,sensory,na,na,na,male,nonpharynx,R1AL,right
+R1BL,sensory,na,na,na,male,nonpharynx,R1BR,left
+R1BR,sensory,na,na,na,male,nonpharynx,R1BL,right
+R2AL,sensory,na,na,na,male,nonpharynx,R2AR,left
+R2AR,sensory,na,na,na,male,nonpharynx,R2AL,right
+R2BL,sensory,na,na,na,male,nonpharynx,R2BR,left
+R2BR,sensory,na,na,na,male,nonpharynx,R2BL,right
+R3AL,sensory,na,na,na,male,nonpharynx,R3AR,left
+R3AR,sensory,na,na,na,male,nonpharynx,R3AL,right
+R3BL,sensory,na,na,na,male,nonpharynx,R3BR,left
+R3BR,sensory,na,na,na,male,nonpharynx,R3BL,right
+R4AL,sensory,na,na,na,male,nonpharynx,R4AR,left
+R4AR,sensory,na,na,na,male,nonpharynx,R4AL,right
+R4BL,sensory,na,na,na,male,nonpharynx,R4BR,left
+R4BR,sensory,na,na,na,male,nonpharynx,R4BL,right
+R5AL,sensory,na,na,na,male,nonpharynx,R5AR,left
+R5AR,sensory,na,na,na,male,nonpharynx,R5AL,right
+R5BL,sensory,na,na,na,male,nonpharynx,R5BR,left
+R5BR,sensory,na,na,na,male,nonpharynx,R5BL,right
+R6AL,sensory,na,na,na,male,nonpharynx,R6AR,left
+R6AR,sensory,na,na,na,male,nonpharynx,R6AL,right
+R6BL,sensory,na,na,na,male,nonpharynx,R6BR,left
+R6BR,sensory,na,na,na,male,nonpharynx,R6BL,right
+R7AL,sensory,na,na,na,male,nonpharynx,R7AR,left
+R7AR,sensory,na,na,na,male,nonpharynx,R7AL,right
+R7BL,sensory,na,na,na,male,nonpharynx,R7BR,left
+R7BR,sensory,na,na,na,male,nonpharynx,R7BL,right
+R8AL,sensory,na,na,na,male,nonpharynx,R8AR,left
+R8AR,sensory,na,na,na,male,nonpharynx,R8AL,right
+R8BL,sensory,na,na,na,male,nonpharynx,R8BR,left
+R8BR,sensory,na,na,na,male,nonpharynx,R8BL,right
+R9AL,sensory,na,na,na,male,nonpharynx,R9AR,left
+R9AR,sensory,na,na,na,male,nonpharynx,R9AL,right
+R9BL,sensory,na,na,na,male,nonpharynx,R9BR,left
+R9BR,sensory,na,na,na,male,nonpharynx,R9BL,right
+PHDL,sensory,na,na,na,male,nonpharynx,PHDR,left
+PHDR,sensory,na,na,na,male,nonpharynx,PHDL,right
+HOA,sensory,na,na,na,male,nonpharynx,na,na
+HOB,sensory,na,na,na,male,nonpharynx,na,na
+PCAL,sensory,na,na,na,male,nonpharynx,PCAR,left
+PCAR,sensory,na,na,na,male,nonpharynx,PCAL,right
+PCBL,sensory,na,na,na,male,nonpharynx,PCBR,left
+PCBR,sensory,na,na,na,male,nonpharynx,PCBL,right
+PCCL,sensory,na,na,na,male,nonpharynx,PCCR,left
+PCCR,sensory,na,na,na,male,nonpharynx,PCCL,right
+SPCL,sensory,na,na,na,male,nonpharynx,SPCR,left
+SPCR,sensory,na,na,na,male,nonpharynx,SPCL,right
+SPDL,sensory,na,na,na,male,nonpharynx,SPDR,left
+SPDR,sensory,na,na,na,male,nonpharynx,SPDL,right
+SPVL,sensory,na,na,na,male,nonpharynx,SPVR,left
+SPVR,sensory,na,na,na,male,nonpharynx,SPVL,right
+PVV,interneuron,na,na,na,male,nonpharynx,na,na
+PVX,interneuron,na,na,na,male,nonpharynx,na,na
+PVY,interneuron,na,na,na,male,nonpharynx,na,na
+PVZ,interneuron,na,na,na,male,nonpharynx,na,na
+DVE,interneuron,na,na,na,male,nonpharynx,na,na
+DVF,interneuron,na,na,na,male,nonpharynx,na,na
+DX1,interneuron,na,na,na,male,nonpharynx,na,na
+DX2,interneuron,na,na,na,male,nonpharynx,na,na
+DX3,interneuron,na,na,na,male,nonpharynx,na,na
+EF1,interneuron,na,na,na,male,nonpharynx,na,na
+EF2,interneuron,na,na,na,male,nonpharynx,na,na
+EF3,interneuron,na,na,na,male,nonpharynx,na,na
+PDC,interneuron,na,na,na,male,nonpharynx,na,na
+PGA,interneuron,na,na,na,male,nonpharynx,na,na
+CA01,interneuron,na,na,na,male,nonpharynx,na,na
+CA02,interneuron,na,na,na,male,nonpharynx,na,na
+CA03,interneuron,na,na,na,male,nonpharynx,na,na
+CA04,interneuron,na,na,na,male,nonpharynx,na,na
+CA05,interneuron,na,na,na,male,nonpharynx,na,na
+CA06,interneuron,na,na,na,male,nonpharynx,na,na
+CA07,interneuron,na,na,na,male,nonpharynx,na,na
+CA08,interneuron,na,na,na,male,nonpharynx,na,na
+CA09,interneuron,na,na,na,male,nonpharynx,na,na
+CP00,interneuron,na,na,na,male,nonpharynx,na,na
+CP01,interneuron,na,na,na,male,nonpharynx,na,na
+CP02,interneuron,na,na,na,male,nonpharynx,na,na
+CP03,interneuron,na,na,na,male,nonpharynx,na,na
+CP04,interneuron,na,na,na,male,nonpharynx,na,na
+CP05,interneuron,na,na,na,male,nonpharynx,na,na
+CP06,interneuron,na,na,na,male,nonpharynx,na,na
+CP07,interneuron,na,na,na,male,nonpharynx,na,na
+CP08,interneuron,na,na,na,male,nonpharynx,na,na
+CP09,interneuron,na,na,na,male,nonpharynx,na,na
+DGLL1,endorgan,muscle,na,na,male,nonpharynx,DGLR1,left
+DGLL2,endorgan,muscle,na,na,male,nonpharynx,DGLR2,left
+DGLL3,endorgan,muscle,na,na,male,nonpharynx,DGLR3,left
+DGLL4,endorgan,muscle,na,na,male,nonpharynx,DGLR4,left
+DGLL5,endorgan,muscle,na,na,male,nonpharynx,DGLR5,left
+DGLL6,endorgan,muscle,na,na,male,nonpharynx,DGLR6,left
+DGLL7,endorgan,muscle,na,na,male,nonpharynx,DGLR7,left
+DGLR1,endorgan,muscle,na,na,male,nonpharynx,DGLL1,right
+DGLR2,endorgan,muscle,na,na,male,nonpharynx,DGLL2,right
+DGLR3,endorgan,muscle,na,na,male,nonpharynx,DGLL3,right
+DGLR4,endorgan,muscle,na,na,male,nonpharynx,DGLL4,right
+DGLR5,endorgan,muscle,na,na,male,nonpharynx,DGLL5,right
+DGLR6,endorgan,muscle,na,na,male,nonpharynx,DGLL6,right
+DGLR7,endorgan,muscle,na,na,male,nonpharynx,DGLL7,right
+DGLR8,endorgan,muscle,na,na,male,nonpharynx,na,na
+AOBL,endorgan,muscle,na,na,male,nonpharynx,AOBR,left
+AOBR,endorgan,muscle,na,na,male,nonpharynx,AOBL,right
+POBL,endorgan,muscle,na,na,male,nonpharynx,POBR,left
+POBR,endorgan,muscle,na,na,male,nonpharynx,POBL,right
+GECL,endorgan,muscle,na,na,male,nonpharynx,GECR,left
+GECR,endorgan,muscle,na,na,male,nonpharynx,GECL,right
+GRTL,endorgan,muscle,na,na,male,nonpharynx,GRTR,left
+GRTR,endorgan,muscle,na,na,male,nonpharynx,GRTL,right
+CDLL,endorgan,muscle,na,na,male,nonpharynx,CDLR,left
+CDLR,endorgan,muscle,na,na,male,nonpharynx,CDLL,right
+AILL,endorgan,muscle,na,na,male,nonpharynx,AILR,left
+AILR,endorgan,muscle,na,na,male,nonpharynx,AILL,right
+PILL,endorgan,muscle,na,na,male,nonpharynx,PILR,left
+PILR,endorgan,muscle,na,na,male,nonpharynx,PILL,right
+POLL,endorgan,muscle,na,na,male,nonpharynx,POLR,left
+POLR,endorgan,muscle,na,na,male,nonpharynx,POLL,right
+DSPL,endorgan,muscle,na,na,male,nonpharynx,DSPR,left
+DSPR,endorgan,muscle,na,na,male,nonpharynx,DSPL,right
+VSPL,endorgan,muscle,na,na,male,nonpharynx,VSPR,left
+VSPR,endorgan,muscle,na,na,male,nonpharynx,VSPL,right
+DSRL,endorgan,muscle,na,na,male,nonpharynx,DSRR,left
+DSRR,endorgan,muscle,na,na,male,nonpharynx,DSRL,right
+VSRL,endorgan,muscle,na,na,male,nonpharynx,VSRR,left
+VSRR,endorgan,muscle,na,na,male,nonpharynx,VSRL,right
+GONAD,endorgan,na,na,na,male,nonpharynx,na,na
+R1SHL,endorgan,na,na,na,male,nonpharynx,R1SHR,left
+R1SHR,endorgan,na,na,na,male,nonpharynx,R1SHL,right
+R2SHL,endorgan,na,na,na,male,nonpharynx,R2SHR,left
+R2SHR,endorgan,na,na,na,male,nonpharynx,R2SHL,right
+R3SHL,endorgan,na,na,na,male,nonpharynx,R3SHR,left
+R3SHR,endorgan,na,na,na,male,nonpharynx,R3SHL,right
+R4SHL,endorgan,na,na,na,male,nonpharynx,R4SHR,left
+R4SHR,endorgan,na,na,na,male,nonpharynx,R4SHL,right
+R5SHL,endorgan,na,na,na,male,nonpharynx,R5SHR,left
+R5SHR,endorgan,na,na,na,male,nonpharynx,R5SHL,right
+R6SHL,endorgan,na,na,na,male,nonpharynx,R6SHR,left
+R6SHR,endorgan,na,na,na,male,nonpharynx,R6SHL,right
+R7SHL,endorgan,na,na,na,male,nonpharynx,R7SHR,left
+R7SHR,endorgan,na,na,na,male,nonpharynx,R7SHL,right
+R8SHL,endorgan,na,na,na,male,nonpharynx,R8SHR,left
+R8SHR,endorgan,na,na,na,male,nonpharynx,R8SHL,right
+R9SHL,endorgan,na,na,na,male,nonpharynx,R9SHR,left
+R9SHR,endorgan,na,na,na,male,nonpharynx,R9SHL,right
+EXC_CELL,endorgan,excretory,na,na,both,nonpharynx,na,na
+MU_SPH,endorgan,muscle,na,na,both,nonpharynx,na,na
