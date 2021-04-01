@@ -26,3 +26,6 @@
   chapters:
   - file: sgm
   
+- part: Nanoscale Connectome Matching
+  chapters: 
+  - file: elegans
