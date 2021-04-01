@@ -228,6 +228,11 @@
    still no prior, using inter-hemisphere info to make a “better” init
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="#gm-augmented-with-inter-connection-similarity-matrix">
+   GM augmented with inter-connection similarity matrix
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -348,6 +353,23 @@
   <a class="reference internal nav-link" href="#still-no-prior-using-inter-hemisphere-info-to-make-a-better-init">
    still no prior, using inter-hemisphere info to make a “better” init
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gm">
+     GM
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#goat">
+     GOAT
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gm-augmented-with-inter-connection-similarity-matrix">
+   GM augmented with inter-connection similarity matrix
+  </a>
  </li>
 </ul>
 
@@ -361,7 +383,7 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 1
@@ -369,7 +391,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment</span>
 <span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment_ot</span>
@@ -381,7 +403,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -398,7 +420,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;FAFB(L)&quot;</span><span class="p">,</span> <span class="s2">&quot;FAFB(R)&quot;</span><span class="p">]</span>
 <span class="n">dataset1_meta</span> <span class="o">=</span> <span class="n">meta</span><span class="p">[</span><span class="n">meta</span><span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
@@ -417,7 +439,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset2_intra</span><span class="p">)</span>
 <span class="n">dataset1_intra_pad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
@@ -426,7 +448,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -504,7 +526,7 @@
 </div>
 <div class="section" id="recreate-pedigo-gm-no-prior-barycenter-init-matching-just-intra">
 <h1>Recreate pedigo, GM no prior, barycenter init, matching just intra<a class="headerlink" href="#recreate-pedigo-gm-no-prior-barycenter-init-matching-just-intra" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-5</span><span class="p">,}</span>
 <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">dataset1_intra_pad</span><span class="p">,</span> <span class="n">dataset2_intra</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
@@ -513,7 +535,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
@@ -530,7 +552,7 @@ Matching Accuracy ignoring unknowns 0.88
 </div>
 <div class="section" id="goat-no-prior-barycenter-init-matching-just-intra">
 <h1>GOAT no prior, barycenter init, matching just intra<a class="headerlink" href="#goat-no-prior-barycenter-init-matching-just-intra" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;reg&#39;</span><span class="p">:</span><span class="mi">300</span><span class="p">}</span>
 <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">dataset1_intra_pad</span><span class="p">,</span> <span class="n">dataset2_intra</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
@@ -539,7 +561,7 @@ Matching Accuracy ignoring unknowns 0.88
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
@@ -556,7 +578,7 @@ Matching Accuracy ignoring unknowns 0.95
 </div>
 <div class="section" id="still-no-prior-using-inter-hemisphere-info-to-make-a-better-init">
 <h1>still no prior, using inter-hemisphere info to make a “better” init<a class="headerlink" href="#still-no-prior-using-inter-hemisphere-info-to-make-a-better-init" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ot</span> <span class="kn">import</span> <span class="n">sinkhorn</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
@@ -570,7 +592,7 @@ Matching Accuracy ignoring unknowns 0.95
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">linear_sum_assignment</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
@@ -580,7 +602,9 @@ Matching Accuracy ignoring unknowns 0.95
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="section" id="gm">
+<h2>GM<a class="headerlink" href="#gm" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="n">sim</span><span class="p">}</span>
 <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">dataset1_intra_pad</span><span class="p">,</span> <span class="n">dataset2_intra</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
@@ -589,7 +613,7 @@ Matching Accuracy ignoring unknowns 0.95
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
@@ -600,10 +624,13 @@ Matching Accuracy ignoring unknowns 0.95
 Matching Accuracy ignoring unknowns 0.97
 </pre></div>
 </div>
-<img alt="_images/ALPN_17_1.png" src="_images/ALPN_17_1.png" />
+<img alt="_images/ALPN_18_1.png" src="_images/ALPN_18_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
+</div>
+<div class="section" id="goat">
+<h2>GOAT<a class="headerlink" href="#goat" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;reg&#39;</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="n">sim</span><span class="p">}</span>
 <span class="n">res</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">dataset1_intra_pad</span><span class="p">,</span> <span class="n">dataset2_intra</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
@@ -612,7 +639,7 @@ Matching Accuracy ignoring unknowns 0.97
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gen_result</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
@@ -623,7 +650,66 @@ Matching Accuracy ignoring unknowns 0.97
 Matching Accuracy ignoring unknowns 0.97
 </pre></div>
 </div>
-<img alt="_images/ALPN_19_1.png" src="_images/ALPN_19_1.png" />
+<img alt="_images/ALPN_21_1.png" src="_images/ALPN_21_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gm-augmented-with-inter-connection-similarity-matrix">
+<h1>GM augmented with inter-connection similarity matrix<a class="headerlink" href="#gm-augmented-with-inter-connection-similarity-matrix" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">graspologic.match</span> <span class="kn">import</span> <span class="n">GraphMatch</span>
+<span class="n">gmp</span> <span class="o">=</span> <span class="n">GraphMatch</span><span class="p">(</span><span class="n">n_init</span> <span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dataset1_intra_pad</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dataset2_intra</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">gmp</span> <span class="o">=</span> <span class="n">gmp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">dataset1_intra_pad</span><span class="p">,</span> <span class="n">dataset2_intra</span><span class="p">,</span><span class="n">S</span><span class="o">=</span><span class="n">s</span> <span class="o">*</span> <span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">b</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">perm_inds</span> <span class="o">=</span> <span class="n">gmp</span><span class="o">.</span><span class="n">perm_inds_</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;objective function value: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dataset1_intra_pad</span> <span class="o">*</span> <span class="n">dataset2_intra</span><span class="p">[</span><span class="n">perm_inds</span><span class="p">][:,</span> <span class="n">perm_inds</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">dataset2_intra_matched</span> <span class="o">=</span> <span class="n">dataset2_intra</span><span class="p">[</span><span class="n">perm_inds</span><span class="p">][:,</span> <span class="n">perm_inds</span><span class="p">][:</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset1_ids</span><span class="p">)]</span>
+<span class="n">dataset2_meta_matched</span> <span class="o">=</span> <span class="n">dataset2_meta</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">perm_inds</span><span class="p">][:</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset1_ids</span><span class="p">)]</span>
+
+<span class="n">labels1</span> <span class="o">=</span> <span class="n">dataset1_meta</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+<span class="n">dataset1_vmax</span> <span class="o">=</span> <span class="n">labels1</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">labels2</span> <span class="o">=</span> <span class="n">dataset2_meta_matched</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+<span class="n">dataset2_vmax</span> <span class="o">=</span> <span class="n">labels2</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">vmax</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dataset1_vmax</span><span class="p">,</span> <span class="n">dataset2_vmax</span><span class="p">)</span>
+
+<span class="n">unique_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">labels1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">labels2</span><span class="p">))</span>
+<span class="n">conf_mat</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">labels1</span><span class="p">,</span> <span class="n">labels2</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">unique_labels</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">conf_mat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">conf_mat</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">unique_labels</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">unique_labels</span><span class="p">)</span>
+<span class="n">conf_mat</span> <span class="o">=</span> <span class="n">conf_mat</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>  <span class="c1"># hack to ignore anything &quot;unclear&quot;</span>
+<span class="n">on_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">conf_mat</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">conf_mat</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Matching Accuracy ignoring unknowns </span><span class="si">{</span><span class="n">on_diag</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">confusionplot</span><span class="p">(</span>
+        <span class="n">labels1</span><span class="p">,</span>
+        <span class="n">labels2</span><span class="p">,</span>
+        <span class="n">ylabel</span><span class="o">=</span><span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">xlabel</span><span class="o">=</span><span class="n">datasets</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Label confusion matrix&quot;</span><span class="p">,</span>
+        <span class="n">annot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+        <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">yticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>objective function value: 6162.901828036416
+Matching Accuracy ignoring unknowns 0.97
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Label confusion matrix (0.94 correct)&#39;}, xlabel=&#39;FAFB(R)&#39;, ylabel=&#39;FAFB(L)&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/ALPN_24_2.png" src="_images/ALPN_24_2.png" />
 </div>
 </div>
 </div>
