@@ -29,3 +29,8 @@
 - part: Nanoscale Connectome Matching
   chapters: 
   - file: elegans
+  
+- part: ALPN matching with GOAT
+  chapters:
+  - file: ALPN
+  
