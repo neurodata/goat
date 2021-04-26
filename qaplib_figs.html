@@ -298,18 +298,42 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#qaplib-benchmark-with-barycenter-init-random-shuffle">
-   QAPLIB Benchmark with barycenter init, random shuffle
+  <a class="reference internal nav-link" href="#qaplib-benchmark-with-barycenter-init-50-random-shuffles">
+   QAPLIB Benchmark with barycenter init, 50 random shuffles
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#qaplib-with-random-inits">
    QAPLIB with Random Inits
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#random-inits-1-shuffle-per-init">
+     100 random inits, 1 shuffle per init
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-for-paper">
+   Table for paper
+  </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#recreate-fig-4-from-faq-paper">
    Recreate fig 4 from FAQ Paper
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-alongside-above-figure">
+     Table alongside above figure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mean-and-variance-with-multiple-random-shuffles">
+   Mean and variance with multiple random shuffles
   </a>
  </li>
 </ul>
@@ -325,7 +349,7 @@
                 
   <div class="section" id="qaplib-figures">
 <h1>QAPLIB Figures<a class="headerlink" href="#qaplib-figures" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 1
@@ -333,16 +357,17 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment</span>
 <span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment_ot</span>
+<span class="kn">from</span> <span class="nn">pkg.plot</span> <span class="kn">import</span> <span class="n">set_theme</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hide</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -353,11 +378,13 @@
 </div>
 </div>
 </div>
-<div class="section" id="qaplib-benchmark-with-barycenter-init-random-shuffle">
-<h1>QAPLIB Benchmark with barycenter init, random shuffle<a class="headerlink" href="#qaplib-benchmark-with-barycenter-init-random-shuffle" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="section" id="qaplib-benchmark-with-barycenter-init-50-random-shuffles">
+<h1>QAPLIB Benchmark with barycenter init, 50 random shuffles<a class="headerlink" href="#qaplib-benchmark-with-barycenter-init-50-random-shuffles" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span><span class="s2">&quot;esc16b&quot;</span><span class="p">,</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span>
+<span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span><span class="s2">&quot;esc16b&quot;</span><span class="p">,</span>
           <span class="s2">&quot;rou12&quot;</span><span class="p">,</span><span class="s2">&quot;rou15&quot;</span><span class="p">,</span><span class="s2">&quot;rou20&quot;</span><span class="p">,</span><span class="s2">&quot;tai12a&quot;</span><span class="p">,</span><span class="s2">&quot;tai15a&quot;</span><span class="p">,</span><span class="s2">&quot;tai17a&quot;</span><span class="p">,</span><span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
           <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span><span class="s2">&quot;tai35a&quot;</span><span class="p">,</span><span class="s2">&quot;tai40a&quot;</span><span class="p">]</span>
 <span class="c1"># qapprob = [&quot;lipa20a&quot;, &quot;lipa20b&quot;, &quot;lipa30a&quot;, &quot;lipa30b&quot;, &quot;lipa40a&quot;, &quot;lipa40b&quot;,</span>
@@ -371,23 +398,30 @@
 
 <span class="n">gm_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
 <span class="n">gmot_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
-
+<span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
 
     <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>          
+    <span class="n">n_init</span><span class="o">=</span><span class="mi">50</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
     <span class="n">gm_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
     
-    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">})</span>       
+    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>  
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
     <span class="n">gmot_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">opt</span> <span class="o">=</span> <span class="p">[</span><span class="n">slnfile</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">qapprob</span><span class="p">]</span>
@@ -396,38 +430,135 @@
 <span class="n">mat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">gm_scores</span>
 <span class="n">mat</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmot_scores</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OPT&quot;</span><span class="p">,</span><span class="s2">&quot;GM&quot;</span><span class="p">,</span> <span class="s1">&#39;GM_OT&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OPT&quot;</span><span class="p">,</span><span class="s2">&quot;FAQ&quot;</span><span class="p">,</span> <span class="s1">&#39;GOAT&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;QAP&quot;</span><span class="p">,</span><span class="n">qapprob</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">style</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       QAP      OPT       GM    GM_OT
-0   chr12c    11156    13072    12850
-1   chr15a     9896    16398    14840
-2   chr15c     9504    19206    16284
-3   chr20b     2298     2986     3422
-4   chr22b     6194     8420     7482
-5   esc16b      292      320      316
-6    rou12   235528   253420   243392
-7    rou15   354210   369342   370696
-8    rou20   725522   743884   742606
-9   tai12a   224416   244672   224416
-10  tai15a   388214   397376   402248
-11  tai17a   491812   509656   499528
-12  tai20a   703482   734276   771754
-13  tai30a  1818146  1880064  1869814
-14  tai35a  2422002  2460940  2498962
-15  tai40a  3139370  3227612  3180126
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><style  type="text/css" >
+</style><table id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >QAP</th>        <th class="col_heading level0 col1" >OPT</th>        <th class="col_heading level0 col2" >FAQ</th>        <th class="col_heading level0 col3" >GOAT</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col0" class="data row0 col0" >chr12c</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col1" class="data row0 col1" >11156</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col2" class="data row0 col2" >13072</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col3" class="data row0 col3" >12850</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col0" class="data row1 col0" >chr15a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col1" class="data row1 col1" >9896</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col2" class="data row1 col2" >12112</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col3" class="data row1 col3" >19108</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col0" class="data row2 col0" >chr15c</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col1" class="data row2 col1" >9504</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col2" class="data row2 col2" >11936</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col3" class="data row2 col3" >16052</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col0" class="data row3 col0" >chr20b</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col1" class="data row3 col1" >2298</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col2" class="data row3 col2" >2764</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col3" class="data row3 col3" >3260</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col0" class="data row4 col0" >chr22b</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col1" class="data row4 col1" >6194</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col2" class="data row4 col2" >7944</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col3" class="data row4 col3" >7588</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row5" class="row_heading level0 row5" >5</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col0" class="data row5 col0" >esc16b</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col1" class="data row5 col1" >292</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col2" class="data row5 col2" >302</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col3" class="data row5 col3" >300</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row6" class="row_heading level0 row6" >6</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col0" class="data row6 col0" >rou12</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col1" class="data row6 col1" >235528</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col2" class="data row6 col2" >243582</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col3" class="data row6 col3" >251864</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row7" class="row_heading level0 row7" >7</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col0" class="data row7 col0" >rou15</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col1" class="data row7 col1" >354210</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col2" class="data row7 col2" >369342</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col3" class="data row7 col3" >359748</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row8" class="row_heading level0 row8" >8</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col0" class="data row8 col0" >rou20</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col1" class="data row8 col1" >725522</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col2" class="data row8 col2" >743884</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col3" class="data row8 col3" >738510</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row9" class="row_heading level0 row9" >9</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col0" class="data row9 col0" >tai12a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col1" class="data row9 col1" >224416</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col2" class="data row9 col2" >244672</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col3" class="data row9 col3" >239912</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row10" class="row_heading level0 row10" >10</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col0" class="data row10 col0" >tai15a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col1" class="data row10 col1" >388214</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col2" class="data row10 col2" >397376</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col3" class="data row10 col3" >408414</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row11" class="row_heading level0 row11" >11</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col0" class="data row11 col0" >tai17a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col1" class="data row11 col1" >491812</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col2" class="data row11 col2" >509656</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col3" class="data row11 col3" >518132</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row12" class="row_heading level0 row12" >12</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col0" class="data row12 col0" >tai20a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col1" class="data row12 col1" >703482</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col2" class="data row12 col2" >734276</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col3" class="data row12 col3" >740054</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row13" class="row_heading level0 row13" >13</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col0" class="data row13 col0" >tai30a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col1" class="data row13 col1" >1818146</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col2" class="data row13 col2" >1859758</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col3" class="data row13 col3" >1874468</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row14" class="row_heading level0 row14" >14</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col0" class="data row14 col0" >tai35a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col1" class="data row14 col1" >2422002</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col2" class="data row14 col2" >2460940</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col3" class="data row14 col3" >2502302</td>
+            </tr>
+            <tr>
+                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row15" class="row_heading level0 row15" >15</th>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col0" class="data row15 col0" >tai40a</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col1" class="data row15 col1" >3139370</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col2" class="data row15 col2" >3225948</td>
+                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col3" class="data row15 col3" >3196748</td>
+            </tr>
+    </tbody></table></div></div>
 </div>
 </div>
 <div class="section" id="qaplib-with-random-inits">
 <h1>QAPLIB with Random Inits<a class="headerlink" href="#qaplib-with-random-inits" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="section" id="random-inits-1-shuffle-per-init">
+<h2>100 random inits, 1 shuffle per init<a class="headerlink" href="#random-inits-1-shuffle-per-init" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span><span class="s2">&quot;esc16b&quot;</span><span class="p">,</span>
           <span class="s2">&quot;rou12&quot;</span><span class="p">,</span><span class="s2">&quot;rou15&quot;</span><span class="p">,</span><span class="s2">&quot;rou20&quot;</span><span class="p">,</span><span class="s2">&quot;tai12a&quot;</span><span class="p">,</span><span class="s2">&quot;tai15a&quot;</span><span class="p">,</span><span class="s2">&quot;tai17a&quot;</span><span class="p">,</span><span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
@@ -437,71 +568,207 @@
 <span class="c1">#               &quot;lipa80a&quot;, &quot;lipa90a&quot;, &quot;lipa90b&quot;]</span>
 <span class="c1"># qapprob =[&quot;sko100a&quot;, &quot;sko100b&quot;, &quot;sko100c&quot;, &quot;sko100d&quot;, &quot;sko100e&quot;, &quot;sko100f&quot;,]</span>
 <span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
-<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
-<span class="n">bari_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
-<span class="n">no_shuffle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
-<span class="n">den</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">#controls number of barycenter inits</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
-    <span class="n">b_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">den</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">den</span><span class="p">):</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="s1">&#39;randomized&#39;</span><span class="p">})</span>
-                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">)</span>
-                                   <span class="c1">#options={&#39;rng&#39;:i+k} )</span>
-        <span class="n">b_min</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">([</span><span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">})</span>
-                   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">)],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">)</span>
-        
-    <span class="n">bari_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">b_min</span><span class="p">)</span>
-    <span class="n">no_shuffle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+
+<span class="n">gm_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">gmot_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">n_init</span><span class="o">=</span><span class="mi">100</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="s1">&#39;randomized&#39;</span><span class="p">,</span><span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
+    <span class="n">gm_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+    
+    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="s1">&#39;randomized&#39;</span><span class="p">,</span><span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>  
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
+    <span class="n">gmot_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span><span class="s2">&quot;esc16b&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;rou12&quot;</span><span class="p">,</span><span class="s2">&quot;rou15&quot;</span><span class="p">,</span><span class="s2">&quot;rou20&quot;</span><span class="p">,</span><span class="s2">&quot;tai12a&quot;</span><span class="p">,</span><span class="s2">&quot;tai15a&quot;</span><span class="p">,</span><span class="s2">&quot;tai17a&quot;</span><span class="p">,</span><span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span><span class="s2">&quot;tai35a&quot;</span><span class="p">,</span><span class="s2">&quot;tai40a&quot;</span><span class="p">]</span>
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
 <span class="n">opt</span> <span class="o">=</span> <span class="p">[</span><span class="n">slnfile</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">qapprob</span><span class="p">]</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">opt</span>
-<span class="n">mat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">bari_scores</span>
-<span class="n">mat</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">no_shuffle</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">gm_scores</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">gmot_scores</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OPT&quot;</span><span class="p">,</span><span class="s2">&quot;GM&quot;</span><span class="p">,</span> <span class="s1">&#39;GM_OT&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OPT&quot;</span><span class="p">,</span><span class="s2">&quot;FAQ&quot;</span><span class="p">,</span> <span class="s1">&#39;GOAT&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;QAP&quot;</span><span class="p">,</span><span class="n">qapprob</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="c1"># print(df)</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       QAP      OPT       GM    GM_OT
-0   chr12c    11156    12910    11566
-1   chr15a     9896    12596    10632
-2   chr15c     9504    12682    12324
-3   chr20b     2298     2884     2702
-4   chr22b     6194     7468     7060
-5   esc16b      292      292      292
-6    rou12   235528   235528   238134
-7    rou15   354210   354210   359748
-8    rou20   725522   728724   731916
-9   tai12a   224416   224416   224416
-10  tai15a   388214   392712   392712
-11  tai17a   491812   501016   496598
-12  tai20a   703482   710350   705622
-13  tai30a  1818146  1850676  1828454
-14  tai35a  2422002  2461826  2431498
-15  tai40a  3139370  3186970  3179110
-</pre></div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>QAP</th>
+      <th>OPT</th>
+      <th>FAQ</th>
+      <th>GOAT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>chr12c</td>
+      <td>11156</td>
+      <td>12292</td>
+      <td>12406</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>chr15a</td>
+      <td>9896</td>
+      <td>10440</td>
+      <td>10010</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>chr15c</td>
+      <td>9504</td>
+      <td>11036</td>
+      <td>11174</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>chr20b</td>
+      <td>2298</td>
+      <td>2772</td>
+      <td>2462</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>chr22b</td>
+      <td>6194</td>
+      <td>7000</td>
+      <td>7054</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>esc16b</td>
+      <td>292</td>
+      <td>292</td>
+      <td>292</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>rou12</td>
+      <td>235528</td>
+      <td>235528</td>
+      <td>235528</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>rou15</td>
+      <td>354210</td>
+      <td>354210</td>
+      <td>356654</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>rou20</td>
+      <td>725522</td>
+      <td>731134</td>
+      <td>728724</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>tai12a</td>
+      <td>224416</td>
+      <td>224416</td>
+      <td>224416</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>tai15a</td>
+      <td>388214</td>
+      <td>388250</td>
+      <td>391426</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>tai17a</td>
+      <td>491812</td>
+      <td>496598</td>
+      <td>494458</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>tai20a</td>
+      <td>703482</td>
+      <td>708584</td>
+      <td>705622</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>tai30a</td>
+      <td>1818146</td>
+      <td>1829456</td>
+      <td>1829456</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>tai35a</td>
+      <td>2422002</td>
+      <td>2454010</td>
+      <td>2444344</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>tai40a</td>
+      <td>3139370</td>
+      <td>3182368</td>
+      <td>3172228</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
+<div class="section" id="table-for-paper">
+<h1>Table for paper<a class="headerlink" href="#table-for-paper" title="Permalink to this headline">¶</a></h1>
+<p><img alt="title" src="table1.png" /></p>
 </div>
 <div class="section" id="recreate-fig-4-from-faq-paper">
 <h1>Recreate fig 4 from FAQ Paper<a class="headerlink" href="#recreate-fig-4-from-faq-paper" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
@@ -536,28 +803,38 @@
 <span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
 <span class="n">logofv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
-
     <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-
-    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>          
+    <span class="n">n_init</span> <span class="o">=</span> <span class="mi">50</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
     <span class="n">gm_score</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
     
-    <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">})</span>       
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
+  
     <span class="n">logofv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">fun</span><span class="o">/</span><span class="n">gm_score</span><span class="p">)</span>
     
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">7</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span><span class="n">logofv</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of vertices&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log relative ofv&#39;</span><span class="p">)</span>
@@ -565,20 +842,288 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.39344262295081966
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;log relative ofv&#39;)
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_12_1.png" src="_images/qaplib_figs_12_1.png" />
+<img alt="_images/qaplib_figs_13_1.png" src="_images/qaplib_figs_13_1.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="section" id="table-alongside-above-figure">
+<h2>Table alongside above figure<a class="headerlink" href="#table-alongside-above-figure" title="Permalink to this headline">¶</a></h2>
+<p><img alt="title" src="table2.png" /></p>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bur26a&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26b&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26c&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26d&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26e&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;bur26g&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26h&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr15b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr20c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr25a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;els19&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16a&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16b&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16c&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16d&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16g&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16h&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16i&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16j&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32g&quot;</span><span class="p">,</span> <span class="s2">&quot;esc128&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;had12&quot;</span><span class="p">,</span> <span class="s2">&quot;had14&quot;</span><span class="p">,</span> <span class="s2">&quot;had16&quot;</span><span class="p">,</span> <span class="s2">&quot;had18&quot;</span><span class="p">,</span> <span class="s2">&quot;had20&quot;</span><span class="p">,</span> <span class="s2">&quot;kra30a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;kra30b&quot;</span><span class="p">,</span> <span class="s2">&quot;kra32&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa20a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa20b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa50a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa50b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa80a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug12&quot;</span><span class="p">,</span> <span class="s2">&quot;nug14&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16a&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16b&quot;</span><span class="p">,</span> <span class="s2">&quot;nug17&quot;</span><span class="p">,</span> <span class="s2">&quot;nug18&quot;</span><span class="p">,</span> <span class="s2">&quot;nug20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug21&quot;</span><span class="p">,</span> <span class="s2">&quot;nug22&quot;</span><span class="p">,</span> <span class="s2">&quot;nug24&quot;</span><span class="p">,</span> <span class="s2">&quot;nug25&quot;</span><span class="p">,</span> <span class="s2">&quot;nug27&quot;</span><span class="p">,</span> <span class="s2">&quot;nug28&quot;</span><span class="p">,</span> <span class="s2">&quot;nug30&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;rou12&quot;</span><span class="p">,</span> <span class="s2">&quot;rou15&quot;</span><span class="p">,</span> <span class="s2">&quot;rou20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;scr12&quot;</span><span class="p">,</span> <span class="s2">&quot;scr15&quot;</span><span class="p">,</span> <span class="s2">&quot;scr20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko42&quot;</span><span class="p">,</span> <span class="s2">&quot;sko49&quot;</span><span class="p">,</span> <span class="s2">&quot;sko56&quot;</span><span class="p">,</span> <span class="s2">&quot;sko64&quot;</span><span class="p">,</span> <span class="s2">&quot;sko72&quot;</span><span class="p">,</span> <span class="s2">&quot;sko81&quot;</span><span class="p">,</span> <span class="s2">&quot;sko90&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko100a&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100b&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100c&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100d&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100e&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;ste36b&quot;</span><span class="p">,</span> <span class="s2">&quot;ste36c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai12a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai12b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai17a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai20b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai35a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai40a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai40b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai64c&quot;</span><span class="p">,</span> <span class="s2">&quot;tai80a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai150b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai256c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tho30&quot;</span><span class="p">,</span> <span class="s2">&quot;tho40&quot;</span><span class="p">,</span> <span class="s2">&quot;tho150&quot;</span><span class="p">,</span> <span class="s2">&quot;wil50&quot;</span><span class="p">,</span> <span class="s2">&quot;wil100&quot;</span><span class="p">]</span>
+
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent GOAT better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent FAQ better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent same = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>percent better = 0.319672131147541
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>percent GOAT better = 0.36885245901639346
+percent FAQ better = 0.319672131147541
+percent same = 0.3114754098360656
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mean-and-variance-with-multiple-random-shuffles">
+<h1>Mean and variance with multiple random shuffles<a class="headerlink" href="#mean-and-variance-with-multiple-random-shuffles" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+<span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span>
+<span class="s2">&quot;esc16b&quot;</span><span class="p">,</span> <span class="s2">&quot;rou12&quot;</span><span class="p">,</span><span class="s2">&quot;rou15&quot;</span><span class="p">,</span><span class="s2">&quot;rou20&quot;</span><span class="p">,</span><span class="s2">&quot;tai12a&quot;</span><span class="p">,</span><span class="s2">&quot;tai15a&quot;</span><span class="p">,</span><span class="s2">&quot;tai17a&quot;</span><span class="p">,</span><span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span><span class="s2">&quot;tai35a&quot;</span><span class="p">,</span><span class="s2">&quot;tai40a&quot;</span><span class="p">]</span>
+<span class="c1"># qapprob = [&quot;lipa20a&quot;, &quot;lipa20b&quot;, &quot;lipa30a&quot;, &quot;lipa30b&quot;, &quot;lipa40a&quot;, &quot;lipa40b&quot;,</span>
+<span class="c1">#               &quot;lipa50a&quot;, &quot;lipa50b&quot;, &quot;lipa60a&quot;, &quot;lipa60b&quot;, &quot;lipa70a&quot;, &quot;lipa70b&quot;,</span>
+<span class="c1">#               &quot;lipa80a&quot;, &quot;lipa90a&quot;, &quot;lipa90b&quot;]</span>
+<span class="c1"># qapprob =[&quot;sko100a&quot;, &quot;sko100b&quot;, &quot;sko100c&quot;, &quot;sko100d&quot;, &quot;sko100e&quot;, &quot;sko100f&quot;,]</span>
+
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+<span class="n">slnfile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/qaplib/qap_sols.npz&quot;</span><span class="p">,</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">datafile</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../data/qaplib/qap_probs.npz&quot;</span><span class="p">,</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+<span class="n">reps</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">gm_bary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span> <span class="n">reps</span><span class="p">))</span>
+<span class="n">gmot_bary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="n">reps</span><span class="p">))</span>
+<span class="n">gm_rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span> <span class="n">reps</span><span class="p">))</span>
+<span class="n">gmot_rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="n">reps</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">reps</span><span class="p">):</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;rng&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">30</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>          
+        <span class="n">gm_bary</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;rng&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">30</span><span class="o">+</span><span class="n">j</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>          
+        <span class="n">gm_rand</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;rng&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">30</span><span class="o">+</span><span class="n">j</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;reg&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">})</span>          
+        <span class="n">gmot_bary</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;rng&#39;</span><span class="p">:</span><span class="n">i</span><span class="o">*</span><span class="mi">30</span><span class="o">+</span><span class="n">j</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;reg&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">})</span>          
+        <span class="n">gmot_rand</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+
+<span class="n">opt</span> <span class="o">=</span> <span class="p">[</span><span class="n">slnfile</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">qapprob</span><span class="p">]</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">opt</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">sem</span><span class="p">(</span><span class="n">gm_bary</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mat</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">sem</span><span class="p">(</span><span class="n">gmot_bary</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">mat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;OPT&quot;</span><span class="p">,</span><span class="s2">&quot;GM&quot;</span><span class="p">,</span> <span class="s1">&#39;GM_OT&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;QAP&quot;</span><span class="p">,</span><span class="n">qapprob</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       QAP      OPT    GM  GM_OT
+0   chr12c    11156     0      0
+1   chr15a     9896   557      0
+2   chr15c     9504   433      0
+3   chr20b     2298    54      0
+4   chr22b     6194    43      0
+5   esc16b      292     0      0
+6    rou12   235528   608      0
+7    rou15   354210     0      0
+8    rou20   725522     0      0
+9   tai12a   224416     0      0
+10  tai15a   388214     0      0
+11  tai17a   491812   484      0
+12  tai20a   703482     0      0
+13  tai30a  1818146   624      0
+14  tai35a  2422002  3359      0
+15  tai40a  3139370   118      0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gmot_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gmot_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;paper&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GMOT mean +/- sem&#39;</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM mean +/- sem&#39;</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;GMOT min&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM min&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;QAPLIB problem&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;percent difference from optimal objective function value&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;random intitialization&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3578ab5f98&gt;
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_19_1.png" src="_images/qaplib_figs_19_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gmot_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gmot_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;paper&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GMOT rand&#39;</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM rand&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gmot_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gmot_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GMOT barycenter&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gm_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gm_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM barycenter&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;GMOT min&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM min&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;QAPLIB problem&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;percent difference from optimal objective function value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;percent difference from optimal objective function value&#39;)
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_20_1.png" src="_images/qaplib_figs_20_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gmot_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gmot_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;paper&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GMOT mean +/- sem&#39;</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM mean +/- sem&#39;</span><span class="p">,)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gmot_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;GMOT min&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">gm_pdiff</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM min&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;QAPLIB problem&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;percent difference from optimal objective function value&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;random intitialization&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3578971860&gt;
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_21_1.png" src="_images/qaplib_figs_21_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">gmot_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gmot_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+<span class="n">gm_pdiffb</span> <span class="o">=</span> <span class="p">(</span><span class="n">gm_bary</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;paper&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="c1"># plt.errorbar(qapprob,np.mean(gmot_pdiff,axis=1), sem(gmot_pdiff,axis=1),fmt=&#39;o&#39;,capsize=3, elinewidth=1, markeredgewidth=1, label=&#39;GMOT rand&#39;,alpha=0.75,)</span>
+<span class="c1"># plt.errorbar(qapprob,np.mean(gm_pdiff,axis=1), sem(gm_pdiff,axis=1),fmt=&#39;o&#39;,capsize=3, elinewidth=1, markeredgewidth=1, label=&#39;GM rand&#39;,alpha=0.75,color=&#39;r&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gmot_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gmot_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GMOT barycenter&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">qapprob</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gm_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sem</span><span class="p">(</span><span class="n">gm_pdiffb</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM barycenter&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1"># plt.scatter(qapprob,np.min(gmot_pdiff,axis=1), color=&#39;black&#39;, alpha=0.75,label = &quot;GMOT min&quot;)</span>
+<span class="c1"># plt.scatter(qapprob,np.min(gm_pdiff,axis=1), color=&#39;orange&#39;, alpha=0.75,label=&#39;GM min&#39;)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;QAPLIB problem&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;percent difference from optimal objective function value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;percent difference from optimal objective function value&#39;)
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_22_1.png" src="_images/qaplib_figs_22_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_doubly_stochastic</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="c1"># Adapted from @btaba implementation</span>
+    <span class="c1"># https://github.com/btaba/sinkhorn_knopp</span>
+    <span class="c1"># of Sinkhorn-Knopp algorithm</span>
+    <span class="c1"># https://projecteuclid.org/euclid.pjm/1102992505</span>
+
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">P</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">P</span> <span class="o">@</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">P_eps</span> <span class="o">=</span> <span class="n">P</span>
+
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">it</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># only check every so often to speed up</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P_eps</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">P_eps</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+                <span class="c1"># All column/row sums ~= 1 within threshold</span>
+                <span class="k">break</span>
+
+        <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">r</span> <span class="o">@</span> <span class="n">P</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">P</span> <span class="o">@</span> <span class="n">c</span><span class="p">)</span>
+        <span class="n">P_eps</span> <span class="o">=</span> <span class="n">r</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">P</span> <span class="o">*</span> <span class="n">c</span>
+    <span class="k">return</span> <span class="n">P_eps</span>
 </pre></div>
 </div>
 </div>
