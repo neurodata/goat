@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>rho-Simulated SBM, n=150,1500 &#8212; GMOT</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -45,7 +42,7 @@
     <script src="_static/copybutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -60,14 +57,14 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Matching Human Connectome Data" href="human_connectome.html" />
     <link rel="prev" title="GMOT runtime as function of number of vertices" href="er_time.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -76,168 +73,124 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
-  
-  <img src="_static/nd_logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">GMOT</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/nd_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">GMOT</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="outline.html">
    Outline
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Motivation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="expos_fig.html">
    Expository Demonstration
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   QAPLIB
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="qaplib_figs.html">
    QAPLIB Figures
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="qaplib_figs.html#qaplib-benchmark-with-barycenter-init-random-shuffle">
-   QAPLIB Benchmark with barycenter init, random shuffle
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="qaplib_figs.html#qaplib-with-random-inits">
-   QAPLIB with Random Inits
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="qaplib_figs.html#recreate-fig-4-from-faq-paper">
-   Recreate fig 4 from FAQ Paper
-  </a>
- </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   ER Simulation
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="er_time.html">
    GMOT runtime as function of number of vertices
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   rho-SBM simulations
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    rho-Simulated SBM, n=150,1500
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#experiment-summary-n-150">
-   Experiment Summary, n = 150
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#experiment-summary-n-1500">
-   Experiment Summary, n = 1500
-  </a>
- </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Human Connectome Matching
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="human_connectome.html">
    Matching Human Connectome Data
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="human_connectome.html#recreate-fig-6-from-frigo-et-al">
-   Recreate fig 6 from Frigo et al.
-  </a>
- </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   SGM Fig 2
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="sgm.html">
    SGM figure 2
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Nanoscale Connectome Matching
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="elegans.html">
    Matching the C. elegans connectomes
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   ALPN matching with GOAT
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ALPN.html">
    Recreate pedigo, GM no prior, barycenter init, matching just intra
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ALPN.html#goat-no-prior-barycenter-init-matching-just-intra">
-   GOAT no prior, barycenter init, matching just intra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ALPN.html#still-no-prior-using-inter-hemisphere-info-to-make-a-better-init">
-   still no prior, using inter-hemisphere info to make a “better” init
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ALPN.html#gm-augmented-with-inter-connection-similarity-matrix">
-   GM augmented with inter-connection similarity matrix
-  </a>
- </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -305,12 +258,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -336,12 +289,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    rho-Simulated SBM, n=150,1500
@@ -351,16 +303,27 @@
   <a class="reference internal nav-link" href="#experiment-summary-n-150">
    Experiment Summary, n = 150
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grid-or-no-grid">
+     Grid or no grid?
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#experiment-summary-n-1500">
    Experiment Summary, n = 1500
   </a>
  </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#goat-for-different-values-of-reg-100-200-300-500-700">
+   GOAT for different values of reg = [100, 200, 300, 500, 700]
+  </a>
+ </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -371,31 +334,57 @@
                 
   <div class="section" id="rho-simulated-sbm-n-150-1500">
 <h1>rho-Simulated SBM, n=150,1500<a class="headerlink" href="#rho-simulated-sbm-n-150-1500" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
 <span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 1
-
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;../graspologic&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The autoreload extension is already loaded. To reload it, use:
-  %reload_ext autoreload
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment</span>
 <span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment_ot</span>
 <span class="kn">from</span> <span class="nn">pkg.plot</span> <span class="kn">import</span> <span class="n">set_theme</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;../../graspologic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;../../graspologic&#39;,
+ &#39;/usr/lib/python36.zip&#39;,
+ &#39;/usr/lib/python3.6&#39;,
+ &#39;/usr/lib/python3.6/lib-dynload&#39;,
+ &#39;&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/graspologic-0.1.0-py3.6.egg&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/umap_learn-0.5.1-py3.6.egg&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/networkx-2.5-py3.6.egg&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/hyppo-0.1.3-py3.6.egg&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/pynndescent-0.5.2-py3.6.egg&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/numba-0.53.0rc1.post1-py3.6-linux-x86_64.egg&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/llvmlite-0.36.0rc1-py3.6-linux-x86_64.egg&#39;,
+ &#39;/data/asaadel1/gmot/pkg&#39;,
+ &#39;/data/asaadel1/clir_env/lib/python3.6/site-packages/IPython/extensions&#39;,
+ &#39;/home/asaadel1/.ipython&#39;]
 </pre></div>
 </div>
 </div>
@@ -411,12 +400,12 @@
 <p>for each <span class="math notranslate nohighlight">\(\rho \in \{0.5,0.6,\ldots,0.9,1.0\}\)</span> generate <span class="math notranslate nohighlight">\(r\)</span> replicates <span class="math notranslate nohighlight">\((G_1, G_2)\)</span>.</p>
 <p>For all <span class="math notranslate nohighlight">\(r\)</span> replicates, run <span class="math notranslate nohighlight">\(GM\)</span> and <span class="math notranslate nohighlight">\(GM_{LS}\)</span> (where <span class="math notranslate nohighlight">\(GM_{LS}\)</span> uses the “Lightspeed sinkhorn distances” for computing the step direction) each <span class="math notranslate nohighlight">\(t\)</span> times, with each <span class="math notranslate nohighlight">\(t\)</span> corresponding to a different random permutation on <span class="math notranslate nohighlight">\(G_2\)</span> .</p>
 <p>Specifically,<span class="math notranslate nohighlight">\(G_2' = Q G_2 Q^T,\)</span> where <span class="math notranslate nohighlight">\(Q\)</span> is sampled uniformly from the set of <span class="math notranslate nohighlight">\(n x n\)</span> permutations matrices.</p>
-<p>For each <span class="math notranslate nohighlight">\(t\)</span> permutation, run <span class="math notranslate nohighlight">\(GM\)</span> &amp; <span class="math notranslate nohighlight">\(GM_{SS}\)</span> from the barycenter (<span class="math notranslate nohighlight">\(\gamma = 0\)</span>).</p>
+<p>For each <span class="math notranslate nohighlight">\(t\)</span> permutation, run <span class="math notranslate nohighlight">\(GM\)</span> &amp; <span class="math notranslate nohighlight">\(GM_{LS}\)</span> from the barycenter (<span class="math notranslate nohighlight">\(\gamma = 0\)</span>).</p>
 <p>For each <span class="math notranslate nohighlight">\(r\)</span>, the <span class="math notranslate nohighlight">\(t\)</span> permutation with the highest associated objective function value will have it’s match ratio recorded</p>
 <p>For any <span class="math notranslate nohighlight">\(\rho\)</span> value, have <span class="math notranslate nohighlight">\(\delta\)</span> denote the average match ratio over the <span class="math notranslate nohighlight">\(r\)</span> realizations</p>
 <p>Plot <span class="math notranslate nohighlight">\(x=\rho\)</span> vs <span class="math notranslate nohighlight">\(y\)</span>= <span class="math notranslate nohighlight">\(\delta\)</span> <span class="math notranslate nohighlight">\(\pm\)</span> 2s.e.</p>
 <p>Below contains figures for <span class="math notranslate nohighlight">\(r=50\)</span>, <span class="math notranslate nohighlight">\(t=10\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -430,7 +419,7 @@
 <span class="c1"># from scipy.optimize import linear_sum_assignment</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">t</span><span class="o">=</span><span class="mi">10</span>
 <span class="c1"># gmp = GraphMatch(&#39;maximize&#39;:True, &#39;tol&#39;:0.000001,&#39;maxiter&#39;:30, &#39;shuffle_input&#39;:True)</span>
 <span class="k">def</span> <span class="nf">match_ratio</span><span class="p">(</span><span class="n">inds</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
@@ -471,12 +460,12 @@
         <span class="n">res_opt_ss</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">0.000001</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
             <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span><span class="o">&gt;</span><span class="n">score</span><span class="p">:</span>
                 <span class="n">perm</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">col_ind</span>
                 <span class="n">score</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
 
-            <span class="n">res_ss</span> <span class="o">=</span> <span class="n">quadratic_assignment_ls</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">0.000001</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+            <span class="n">res_ss</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">})</span>
             <span class="k">if</span> <span class="n">res_ss</span><span class="o">.</span><span class="n">fun</span><span class="o">&gt;</span><span class="n">score_ss</span><span class="p">:</span>
                 <span class="n">perm_ss</span> <span class="o">=</span> <span class="n">res_ss</span><span class="o">.</span><span class="n">col_ind</span>
                 <span class="n">score_ss</span> <span class="o">=</span> <span class="n">res_ss</span><span class="o">.</span><span class="n">fun</span>
@@ -487,7 +476,7 @@
 
         <span class="k">return</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">ratio_ss</span><span class="p">,</span> <span class="n">score_ss</span>
 
-    <span class="n">result</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_sim</span><span class="p">)(</span><span class="n">seed</span><span class="p">)</span> <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">seeds</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_sim</span><span class="p">)(</span><span class="n">seed</span><span class="p">)</span> <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">seeds</span><span class="p">)</span>
 
     <span class="n">ratios</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
     <span class="n">scores</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
@@ -496,101 +485,72 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   5 out of  50 | elapsed:   38.2s remaining:  5.7min
-[Parallel(n_jobs=-1)]: Done  11 out of  50 | elapsed:   46.6s remaining:  2.8min
-[Parallel(n_jobs=-1)]: Done  17 out of  50 | elapsed:   51.3s remaining:  1.7min
-[Parallel(n_jobs=-1)]: Done  23 out of  50 | elapsed:   53.2s remaining:  1.0min
-[Parallel(n_jobs=-1)]: Done  29 out of  50 | elapsed:   56.2s remaining:   40.7s
-[Parallel(n_jobs=-1)]: Done  35 out of  50 | elapsed:   58.5s remaining:   25.1s
-[Parallel(n_jobs=-1)]: Done  41 out of  50 | elapsed:  1.0min remaining:   13.4s
-[Parallel(n_jobs=-1)]: Done  47 out of  50 | elapsed:  1.1min remaining:    4.1s
-[Parallel(n_jobs=-1)]: Done  50 out of  50 | elapsed:  1.1min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   5 out of  50 | elapsed:   36.1s remaining:  5.4min
-[Parallel(n_jobs=-1)]: Done  11 out of  50 | elapsed:   43.2s remaining:  2.6min
-[Parallel(n_jobs=-1)]: Done  17 out of  50 | elapsed:   46.6s remaining:  1.5min
-[Parallel(n_jobs=-1)]: Done  23 out of  50 | elapsed:   50.4s remaining:   59.2s
-[Parallel(n_jobs=-1)]: Done  29 out of  50 | elapsed:   52.6s remaining:   38.1s
-[Parallel(n_jobs=-1)]: Done  35 out of  50 | elapsed:   53.7s remaining:   23.0s
-[Parallel(n_jobs=-1)]: Done  41 out of  50 | elapsed:   56.4s remaining:   12.4s
-[Parallel(n_jobs=-1)]: Done  47 out of  50 | elapsed:  1.0min remaining:    3.9s
-[Parallel(n_jobs=-1)]: Done  50 out of  50 | elapsed:  1.1min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   5 out of  50 | elapsed:   35.0s remaining:  5.2min
-[Parallel(n_jobs=-1)]: Done  11 out of  50 | elapsed:   43.3s remaining:  2.6min
-[Parallel(n_jobs=-1)]: Done  17 out of  50 | elapsed:   45.7s remaining:  1.5min
-[Parallel(n_jobs=-1)]: Done  23 out of  50 | elapsed:   49.9s remaining:   58.6s
-[Parallel(n_jobs=-1)]: Done  29 out of  50 | elapsed:   53.1s remaining:   38.4s
-[Parallel(n_jobs=-1)]: Done  35 out of  50 | elapsed:   54.9s remaining:   23.5s
-[Parallel(n_jobs=-1)]: Done  41 out of  50 | elapsed:   57.3s remaining:   12.6s
-[Parallel(n_jobs=-1)]: Done  47 out of  50 | elapsed:  1.0min remaining:    3.9s
-[Parallel(n_jobs=-1)]: Done  50 out of  50 | elapsed:  1.1min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   5 out of  50 | elapsed:   15.2s remaining:  2.3min
-[Parallel(n_jobs=-1)]: Done  11 out of  50 | elapsed:   16.4s remaining:   58.0s
-[Parallel(n_jobs=-1)]: Done  17 out of  50 | elapsed:   18.1s remaining:   35.1s
-[Parallel(n_jobs=-1)]: Done  23 out of  50 | elapsed:   20.5s remaining:   24.0s
-[Parallel(n_jobs=-1)]: Done  29 out of  50 | elapsed:   21.6s remaining:   15.7s
-[Parallel(n_jobs=-1)]: Done  35 out of  50 | elapsed:   26.8s remaining:   11.5s
-[Parallel(n_jobs=-1)]: Done  41 out of  50 | elapsed:   39.5s remaining:    8.7s
-[Parallel(n_jobs=-1)]: Done  47 out of  50 | elapsed:   48.3s remaining:    3.1s
-[Parallel(n_jobs=-1)]: Done  50 out of  50 | elapsed:   51.6s finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   5 out of  50 | elapsed:    6.9s remaining:  1.0min
-[Parallel(n_jobs=-1)]: Done  11 out of  50 | elapsed:    8.0s remaining:   28.3s
-[Parallel(n_jobs=-1)]: Done  17 out of  50 | elapsed:    8.9s remaining:   17.3s
-[Parallel(n_jobs=-1)]: Done  23 out of  50 | elapsed:    9.3s remaining:   10.9s
-[Parallel(n_jobs=-1)]: Done  29 out of  50 | elapsed:    9.6s remaining:    7.0s
-[Parallel(n_jobs=-1)]: Done  35 out of  50 | elapsed:   10.0s remaining:    4.3s
-[Parallel(n_jobs=-1)]: Done  41 out of  50 | elapsed:   10.7s remaining:    2.3s
-[Parallel(n_jobs=-1)]: Done  47 out of  50 | elapsed:   11.3s remaining:    0.7s
-[Parallel(n_jobs=-1)]: Done  50 out of  50 | elapsed:   11.9s finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   5 out of  50 | elapsed:    5.0s remaining:   44.7s
-[Parallel(n_jobs=-1)]: Done  11 out of  50 | elapsed:    5.9s remaining:   20.8s
-[Parallel(n_jobs=-1)]: Done  17 out of  50 | elapsed:    6.2s remaining:   12.1s
-[Parallel(n_jobs=-1)]: Done  23 out of  50 | elapsed:    6.5s remaining:    7.6s
-[Parallel(n_jobs=-1)]: Done  29 out of  50 | elapsed:    6.7s remaining:    4.9s
-[Parallel(n_jobs=-1)]: Done  35 out of  50 | elapsed:    7.0s remaining:    3.0s
-[Parallel(n_jobs=-1)]: Done  41 out of  50 | elapsed:    7.2s remaining:    1.6s
-[Parallel(n_jobs=-1)]: Done  47 out of  50 | elapsed:    7.9s remaining:    0.5s
-[Parallel(n_jobs=-1)]: Done  50 out of  50 | elapsed:    8.4s finished
-</pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
+<div class="section" id="grid-or-no-grid">
+<h2>Grid or no grid?<a class="headerlink" href="#grid-or-no-grid" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#collapse</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
-<span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
 <span class="n">average</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
 
-<span class="n">error_ss</span> <span class="o">=</span> <span class="p">[</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">error_ss</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
 <span class="n">average_ss</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
-<span class="n">txt</span> <span class="o">=</span><span class="sa">f</span><span class="s1">&#39;r=</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s1">, t=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s1">&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_ss</span><span class="p">,</span> <span class="n">error_ss</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM+LS&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="c1"># plt.errorbar(rhos,average_gmlap, error_gmlap,marker=&#39;o&#39;,capsize=3, elinewidth=1, markeredgewidth=1, label=&#39;GM+dissim(dist)&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="c1"># plt.errorbar(rhos,average_lap, error_lap,marker=&#39;o&#39;,capsize=3, elinewidth=1, markeredgewidth=1, label=&#39;LAP (dist)&#39;, color=&#39;yellow&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;rho&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_ss</span><span class="p">,</span> <span class="n">error_ss</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\rho$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;avergae match ratio&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="n">txt</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;n=150&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fe0343bc1d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd827f905c0&gt;
 </pre></div>
 </div>
-<img alt="_images/rho_sbm_5_1.png" src="_images/rho_sbm_5_1.png" />
+<img alt="_images/rho_sbm_8_1.png" src="_images/rho_sbm_8_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#collapse</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+<span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">average</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+
+<span class="n">error_ss</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">average_ss</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_ss</span><span class="p">,</span> <span class="n">error_ss</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\rho$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;avergae match ratio&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;n=150&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd8282755f8&gt;
+</pre></div>
+</div>
+<img alt="_images/rho_sbm_9_1.png" src="_images/rho_sbm_9_1.png" />
+</div>
 </div>
 </div>
 </div>
@@ -609,7 +569,7 @@
 <p>For any <span class="math notranslate nohighlight">\(\rho\)</span> value, have <span class="math notranslate nohighlight">\(\delta\)</span> denote the average match ratio over the <span class="math notranslate nohighlight">\(r\)</span> realizations</p>
 <p>Plot <span class="math notranslate nohighlight">\(x=\rho\)</span> vs <span class="math notranslate nohighlight">\(y\)</span>= <span class="math notranslate nohighlight">\(\delta\)</span> <span class="math notranslate nohighlight">\(\pm\)</span> s.e.</p>
 <p>Below contains figures for <span class="math notranslate nohighlight">\(r=25\)</span>, <span class="math notranslate nohighlight">\(t=5\)</span></p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -664,12 +624,12 @@
         <span class="n">res_opt_ss</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">0.000001</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
             <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span><span class="o">&gt;</span><span class="n">score</span><span class="p">:</span>
                 <span class="n">perm</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">col_ind</span>
                 <span class="n">score</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
 
-            <span class="n">res_ss</span> <span class="o">=</span> <span class="n">quadratic_assignment_ls</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">0.000001</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">})</span>
+            <span class="n">res_ss</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">})</span>
             <span class="k">if</span> <span class="n">res_ss</span><span class="o">.</span><span class="n">fun</span><span class="o">&gt;</span><span class="n">score_ss</span><span class="p">:</span>
                 <span class="n">perm_ss</span> <span class="o">=</span> <span class="n">res_ss</span><span class="o">.</span><span class="n">col_ind</span>
                 <span class="n">score_ss</span> <span class="o">=</span> <span class="n">res_ss</span><span class="o">.</span><span class="n">fun</span>
@@ -680,7 +640,7 @@
 
         <span class="k">return</span> <span class="n">ratio</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="n">ratio_ss</span><span class="p">,</span> <span class="n">score_ss</span>
 
-    <span class="n">result</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">10</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_sim</span><span class="p">)(</span><span class="n">seed</span><span class="p">)</span> <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">seeds</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_sim</span><span class="p">)(</span><span class="n">seed</span><span class="p">)</span> <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">seeds</span><span class="p">)</span>
 
     <span class="n">ratios</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
     <span class="n">scores</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
@@ -689,92 +649,200 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   4 out of  25 | elapsed:  8.1min remaining: 42.7min
-[Parallel(n_jobs=-1)]: Done   7 out of  25 | elapsed:  8.2min remaining: 21.1min
-[Parallel(n_jobs=-1)]: Done  10 out of  25 | elapsed: 10.7min remaining: 16.1min
-[Parallel(n_jobs=-1)]: Done  13 out of  25 | elapsed: 14.0min remaining: 12.9min
-[Parallel(n_jobs=-1)]: Done  16 out of  25 | elapsed: 14.8min remaining:  8.3min
-[Parallel(n_jobs=-1)]: Done  19 out of  25 | elapsed: 15.9min remaining:  5.0min
-[Parallel(n_jobs=-1)]: Done  22 out of  25 | elapsed: 17.6min remaining:  2.4min
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 19.2min remaining:    0.0s
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 19.2min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   4 out of  25 | elapsed:  7.6min remaining: 39.9min
-[Parallel(n_jobs=-1)]: Done   7 out of  25 | elapsed:  8.2min remaining: 21.0min
-[Parallel(n_jobs=-1)]: Done  10 out of  25 | elapsed: 10.5min remaining: 15.7min
-[Parallel(n_jobs=-1)]: Done  13 out of  25 | elapsed: 12.1min remaining: 11.2min
-[Parallel(n_jobs=-1)]: Done  16 out of  25 | elapsed: 13.1min remaining:  7.4min
-[Parallel(n_jobs=-1)]: Done  19 out of  25 | elapsed: 13.8min remaining:  4.4min
-[Parallel(n_jobs=-1)]: Done  22 out of  25 | elapsed: 15.6min remaining:  2.1min
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 26.3min remaining:    0.0s
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 26.3min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   4 out of  25 | elapsed:  7.6min remaining: 40.1min
-[Parallel(n_jobs=-1)]: Done   7 out of  25 | elapsed:  7.7min remaining: 19.9min
-[Parallel(n_jobs=-1)]: Done  10 out of  25 | elapsed:  7.9min remaining: 11.9min
-[Parallel(n_jobs=-1)]: Done  13 out of  25 | elapsed:  8.0min remaining:  7.4min
-[Parallel(n_jobs=-1)]: Done  16 out of  25 | elapsed: 10.7min remaining:  6.0min
-[Parallel(n_jobs=-1)]: Done  19 out of  25 | elapsed: 11.6min remaining:  3.7min
-[Parallel(n_jobs=-1)]: Done  22 out of  25 | elapsed: 12.0min remaining:  1.6min
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 15.2min remaining:    0.0s
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 15.2min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   4 out of  25 | elapsed:  8.0min remaining: 41.9min
-[Parallel(n_jobs=-1)]: Done   7 out of  25 | elapsed:  9.8min remaining: 25.2min
-[Parallel(n_jobs=-1)]: Done  10 out of  25 | elapsed: 10.7min remaining: 16.0min
-[Parallel(n_jobs=-1)]: Done  13 out of  25 | elapsed: 11.3min remaining: 10.4min
-[Parallel(n_jobs=-1)]: Done  16 out of  25 | elapsed: 11.4min remaining:  6.4min
-[Parallel(n_jobs=-1)]: Done  19 out of  25 | elapsed: 11.7min remaining:  3.7min
-[Parallel(n_jobs=-1)]: Done  22 out of  25 | elapsed: 12.4min remaining:  1.7min
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 13.3min remaining:    0.0s
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed: 13.3min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 56 concurrent workers.
-[Parallel(n_jobs=-1)]: Done   4 out of  25 | elapsed:  4.9min remaining: 25.8min
-[Parallel(n_jobs=-1)]: Done   7 out of  25 | elapsed:  5.0min remaining: 12.8min
-[Parallel(n_jobs=-1)]: Done  10 out of  25 | elapsed:  6.7min remaining: 10.0min
-[Parallel(n_jobs=-1)]: Done  13 out of  25 | elapsed:  7.4min remaining:  6.8min
-[Parallel(n_jobs=-1)]: Done  16 out of  25 | elapsed:  7.7min remaining:  4.3min
-[Parallel(n_jobs=-1)]: Done  19 out of  25 | elapsed:  8.1min remaining:  2.6min
-[Parallel(n_jobs=-1)]: Done  22 out of  25 | elapsed:  8.4min remaining:  1.1min
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed:  8.7min remaining:    0.0s
-[Parallel(n_jobs=-1)]: Done  25 out of  25 | elapsed:  8.7min finished
-</pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#collapse</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
-<span class="c1"># error_1500 = [sem(ratios[i,:]) for i in range(n_p)]</span>
-<span class="c1"># average_1500 = [np.mean(ratios[i,:] ) for i in range(n_p)]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+<span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">average</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
 
-<span class="c1"># error_ss_1500 = [sem(ratios_ss[i,:]) for i in range(n_p)]</span>
-<span class="c1"># average_ss_1500 = [np.mean(ratios_ss[i,:] ) for i in range(n_p)]</span>
+<span class="n">error_ss</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">average_ss</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
 
 <span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
-<span class="n">txt</span> <span class="o">=</span><span class="sa">f</span><span class="s1">&#39;r=</span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s1">, t=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s1">&#39;</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos_1500</span><span class="p">,</span><span class="n">average_ss</span><span class="p">,</span> <span class="n">error_ss</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM+LS&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-<span class="c1"># plt.errorbar(rhos,average_gmlap, error_gmlap,marker=&#39;o&#39;,capsize=3, elinewidth=1, markeredgewidth=1, label=&#39;GM+dissim(dist)&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GM&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="c1"># plt.errorbar(rhos,average_lap, error_lap,marker=&#39;o&#39;,capsize=3, elinewidth=1, markeredgewidth=1, label=&#39;LAP (dist)&#39;, color=&#39;yellow&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;rho&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;whitegrid&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_ss</span><span class="p">,</span> <span class="n">error_ss</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\rho$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;avergae match ratio&quot;</span><span class="p">)</span>
-<span class="c1"># plt.text(0.5,0.5,txt)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;n = 1500, </span><span class="si">{</span><span class="n">txt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;n=1500&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fa0748175c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd8286f32b0&gt;
 </pre></div>
 </div>
-<img alt="_images/rho_sbm_8_1.png" src="_images/rho_sbm_8_1.png" />
+<img alt="_images/rho_sbm_12_1.png" src="_images/rho_sbm_12_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+<span class="n">error</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">average</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+
+<span class="n">error_ss</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">sem</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+<span class="n">average_ss</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_ss</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_p</span><span class="p">)]</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_ss</span><span class="p">,</span> <span class="n">error_ss</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\rho$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;avergae match ratio&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;n=1500&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd827c990b8&gt;
+</pre></div>
+</div>
+<img alt="_images/rho_sbm_13_1.png" src="_images/rho_sbm_13_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="goat-for-different-values-of-reg-100-200-300-500-700">
+<h1>GOAT for different values of reg = [100, 200, 300, 500, 700]<a class="headerlink" href="#goat-for-different-values-of-reg-100-200-300-500-700" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="c1"># from graspy.match import GraphMatch as GMP</span>
+<span class="kn">from</span> <span class="nn">graspologic.simulations</span> <span class="kn">import</span> <span class="n">sbm_corr</span>
+<span class="c1"># from scipy.optimize import linear_sum_assignment</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">pairwise_distances</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">t</span><span class="o">=</span><span class="mi">10</span>
+<span class="c1"># gmp = GraphMatch(&#39;maximize&#39;:True, &#39;tol&#39;:0.000001,&#39;maxiter&#39;:30, &#39;shuffle_input&#39;:True)</span>
+<span class="k">def</span> <span class="nf">match_ratio</span><span class="p">(</span><span class="n">inds</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">inds</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">/</span> <span class="n">n</span>
+
+        
+<span class="n">n</span> <span class="o">=</span> <span class="mi">150</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">r</span>
+<span class="n">rhos</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">)[</span><span class="mi">5</span><span class="p">:]</span>
+<span class="c1"># rhos = np.arange(8,10.5,0.5) *0.1</span>
+<span class="n">n_p</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rhos</span><span class="p">)</span>
+
+<span class="n">ratios_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_p</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+
+<span class="n">ratios_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_p</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+<span class="n">ratios_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_p</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+<span class="n">ratios_5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_p</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+<span class="n">ratios_7</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_p</span><span class="p">,</span><span class="n">m</span><span class="p">))</span>
+
+<span class="n">n_per_block</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">n_blocks</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">block_members</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n_blocks</span> <span class="o">*</span> <span class="p">[</span><span class="n">n_per_block</span><span class="p">])</span>
+<span class="n">block_probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]])</span>
+<span class="n">directed</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">loops</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">rho</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rhos</span><span class="p">):</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">8888</span><span class="p">)</span>
+    <span class="n">seeds</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mf">1e8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)]</span>
+    <span class="k">def</span> <span class="nf">run_sim</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
+        
+        <span class="n">A1</span><span class="p">,</span> <span class="n">A2</span> <span class="o">=</span> <span class="n">sbm_corr</span><span class="p">(</span>
+            <span class="n">block_members</span><span class="p">,</span> <span class="n">block_probs</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="n">directed</span><span class="o">=</span><span class="n">directed</span><span class="p">,</span> <span class="n">loops</span><span class="o">=</span><span class="n">loops</span>
+        <span class="p">)</span>
+        <span class="n">score_1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">score_2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">score_3</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">score_5</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">score_7</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1">#         res_1 = None</span>
+<span class="c1">#         res_2 = None</span>
+<span class="c1">#         res_3 = None</span>
+<span class="c1">#         res_4 = None</span>
+<span class="c1">#         res_5 = None</span>
+        <span class="k">def</span> <span class="nf">run_qap</span><span class="p">(</span><span class="n">reg</span><span class="p">):</span>
+            <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+                <span class="n">res</span> <span class="o">=</span> <span class="n">quadratic_assignment_ot</span><span class="p">(</span><span class="n">A1</span><span class="p">,</span><span class="n">A2</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="n">reg</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">})</span>
+                <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span><span class="o">&gt;</span><span class="n">score</span><span class="p">:</span>
+                    <span class="n">perm</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">col_ind</span>
+                    <span class="n">score</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+            <span class="k">return</span> <span class="n">perm</span>
+                
+        <span class="n">ratio_1</span> <span class="o">=</span> <span class="n">match_ratio</span><span class="p">(</span><span class="n">run_qap</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">ratio_2</span> <span class="o">=</span> <span class="n">match_ratio</span><span class="p">(</span><span class="n">run_qap</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">ratio_3</span> <span class="o">=</span> <span class="n">match_ratio</span><span class="p">(</span><span class="n">run_qap</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">ratio_5</span> <span class="o">=</span> <span class="n">match_ratio</span><span class="p">(</span><span class="n">run_qap</span><span class="p">(</span><span class="mi">500</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+        <span class="n">ratio_7</span> <span class="o">=</span> <span class="n">match_ratio</span><span class="p">(</span><span class="n">run_qap</span><span class="p">(</span><span class="mi">700</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ratio_1</span><span class="p">,</span> <span class="n">ratio_2</span><span class="p">,</span> <span class="n">ratio_3</span><span class="p">,</span> <span class="n">ratio_5</span><span class="p">,</span> <span class="n">ratio_7</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">run_sim</span><span class="p">)(</span><span class="n">seed</span><span class="p">)</span> <span class="k">for</span> <span class="n">seed</span> <span class="ow">in</span> <span class="n">seeds</span><span class="p">)</span>
+
+    <span class="n">ratios_1</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+    <span class="n">ratios_2</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+    <span class="n">ratios_3</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+    <span class="n">ratios_5</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+    <span class="n">ratios_7</span><span class="p">[</span><span class="n">k</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">result</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
+<span class="n">error_1</span> <span class="o">=</span> <span class="n">sem</span><span class="p">(</span><span class="n">ratios_1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">average_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">error_2</span> <span class="o">=</span> <span class="n">sem</span><span class="p">(</span><span class="n">ratios_2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">average_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">error_3</span> <span class="o">=</span> <span class="n">sem</span><span class="p">(</span><span class="n">ratios_3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">average_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">error_5</span> <span class="o">=</span> <span class="n">sem</span><span class="p">(</span><span class="n">ratios_5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">average_5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_5</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">error_7</span> <span class="o">=</span> <span class="n">sem</span><span class="p">(</span><span class="n">ratios_7</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">average_7</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ratios_7</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s1">&#39;poster&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="c1"># txt =f&#39;r={r}, t={t}&#39;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_1</span><span class="p">,</span> <span class="n">error_1</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_2</span><span class="p">,</span> <span class="n">error_2</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;200&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_3</span><span class="p">,</span> <span class="n">error_3</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;300&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_5</span><span class="p">,</span> <span class="n">error_5</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;500&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">rhos</span><span class="p">,</span><span class="n">average_7</span><span class="p">,</span> <span class="n">error_7</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">capsize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">elinewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;700&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\rho$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;avergae match ratio&quot;</span><span class="p">)</span>
+<span class="c1"># plt.text(0.5,0.5,txt)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;n=150, GOAT for different regularization term&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fd8275e50b8&gt;
+</pre></div>
+</div>
+<img alt="_images/rho_sbm_16_1.png" src="_images/rho_sbm_16_1.png" />
 </div>
 </div>
 </div>
@@ -826,11 +894,9 @@
 
       </div>
     </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  None
   </body>
 </html>
