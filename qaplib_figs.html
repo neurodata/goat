@@ -349,7 +349,7 @@
                 
   <div class="section" id="qaplib-figures">
 <h1>QAPLIB Figures<a class="headerlink" href="#qaplib-figures" title="Permalink to this headline">¶</a></h1>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
 <span class="o">%</span><span class="k">autoreload</span> 1
@@ -357,7 +357,7 @@
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment</span>
 <span class="kn">from</span> <span class="nn">pkg.gmp</span> <span class="kn">import</span> <span class="n">quadratic_assignment_ot</span>
@@ -367,7 +367,7 @@
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hide</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -380,7 +380,7 @@
 </div>
 <div class="section" id="qaplib-benchmark-with-barycenter-init-50-random-shuffles">
 <h1>QAPLIB Benchmark with barycenter init, 50 random shuffles<a class="headerlink" href="#qaplib-benchmark-with-barycenter-init-50-random-shuffles" title="Permalink to this headline">¶</a></h1>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
 <span class="kn">from</span> <span class="nn">sklearn.utils</span> <span class="kn">import</span> <span class="n">check_random_state</span>
@@ -421,7 +421,7 @@
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">opt</span> <span class="o">=</span> <span class="p">[</span><span class="n">slnfile</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">qapprob</span><span class="p">]</span>
@@ -558,7 +558,7 @@
 <h1>QAPLIB with Random Inits<a class="headerlink" href="#qaplib-with-random-inits" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="random-inits-1-shuffle-per-init">
 <h2>100 random inits, 1 shuffle per init<a class="headerlink" href="#random-inits-1-shuffle-per-init" title="Permalink to this headline">¶</a></h2>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;chr12c&quot;</span><span class="p">,</span><span class="s2">&quot;chr15a&quot;</span><span class="p">,</span><span class="s2">&quot;chr15c&quot;</span><span class="p">,</span><span class="s2">&quot;chr20b&quot;</span><span class="p">,</span><span class="s2">&quot;chr22b&quot;</span><span class="p">,</span><span class="s2">&quot;esc16b&quot;</span><span class="p">,</span>
           <span class="s2">&quot;rou12&quot;</span><span class="p">,</span><span class="s2">&quot;rou15&quot;</span><span class="p">,</span><span class="s2">&quot;rou20&quot;</span><span class="p">,</span><span class="s2">&quot;tai12a&quot;</span><span class="p">,</span><span class="s2">&quot;tai15a&quot;</span><span class="p">,</span><span class="s2">&quot;tai17a&quot;</span><span class="p">,</span><span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
@@ -596,7 +596,7 @@
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
@@ -768,7 +768,7 @@
 </div>
 <div class="section" id="recreate-fig-4-from-faq-paper">
 <h1>Recreate fig 4 from FAQ Paper<a class="headerlink" href="#recreate-fig-4-from-faq-paper" title="Permalink to this headline">¶</a></h1>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
@@ -827,7 +827,7 @@
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -848,10 +848,34 @@
 <img alt="_images/qaplib_figs_13_1.png" src="_images/qaplib_figs_13_1.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ better&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT better&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of vertices&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log relative ofv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;log relative ofv&#39;)
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_14_1.png" src="_images/qaplib_figs_14_1.png" />
+</div>
+</div>
 <div class="section" id="table-alongside-above-figure">
 <h2>Table alongside above figure<a class="headerlink" href="#table-alongside-above-figure" title="Permalink to this headline">¶</a></h2>
 <p><img alt="title" src="_images/table2.png" /></p>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bur26a&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26b&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26c&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26d&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26e&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26f&quot;</span><span class="p">,</span>
               <span class="s2">&quot;bur26g&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26h&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15a&quot;</span><span class="p">,</span>
@@ -898,7 +922,7 @@ percent same = 0.3114754098360656
 </div>
 <div class="section" id="mean-and-variance-with-multiple-random-shuffles">
 <h1>Mean and variance with multiple random shuffles<a class="headerlink" href="#mean-and-variance-with-multiple-random-shuffles" title="Permalink to this headline">¶</a></h1>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
@@ -938,7 +962,7 @@ percent same = 0.3114754098360656
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
@@ -978,7 +1002,7 @@ percent same = 0.3114754098360656
 </div>
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -1006,10 +1030,10 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3578ab5f98&gt;
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_19_1.png" src="_images/qaplib_figs_19_1.png" />
+<img alt="_images/qaplib_figs_20_1.png" src="_images/qaplib_figs_20_1.png" />
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">gmot_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
@@ -1036,10 +1060,10 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;percent difference from optimal objective function value&#39;)
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_20_1.png" src="_images/qaplib_figs_20_1.png" />
+<img alt="_images/qaplib_figs_21_1.png" src="_images/qaplib_figs_21_1.png" />
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">sem</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
@@ -1067,10 +1091,10 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3578971860&gt;
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_21_1.png" src="_images/qaplib_figs_21_1.png" />
+<img alt="_images/qaplib_figs_22_1.png" src="_images/qaplib_figs_22_1.png" />
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opt</span> <span class="o">=</span> <span class="n">mat</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">gmot_pdiff</span> <span class="o">=</span> <span class="p">(</span><span class="n">gmot_rand</span> <span class="o">-</span> <span class="n">opt</span><span class="p">)</span><span class="o">/</span><span class="n">opt</span>
@@ -1097,10 +1121,10 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;percent difference from optimal objective function value&#39;)
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_22_1.png" src="_images/qaplib_figs_22_1.png" />
+<img alt="_images/qaplib_figs_23_1.png" src="_images/qaplib_figs_23_1.png" />
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_doubly_stochastic</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
     <span class="c1"># Adapted from @btaba implementation</span>
