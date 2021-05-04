@@ -50,6 +50,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="_static/nd_logo_small.png"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -298,6 +300,23 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recreate-fig-4-from-faq-paper">
+   Recreate fig 4 from FAQ Paper
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#caption">
+     Caption:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-alongside-above-figure">
+     Table alongside above figure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#qaplib-benchmark-with-barycenter-init-50-random-shuffles">
    QAPLIB Benchmark with barycenter init, 50 random shuffles
   </a>
@@ -318,18 +337,6 @@
   <a class="reference internal nav-link" href="#table-for-paper">
    Table for paper
   </a>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recreate-fig-4-from-faq-paper">
-   Recreate fig 4 from FAQ Paper
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#table-alongside-above-figure">
-     Table alongside above figure
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mean-and-variance-with-multiple-random-shuffles">
@@ -378,6 +385,252 @@
 </div>
 </div>
 </div>
+<div class="section" id="recreate-fig-4-from-faq-paper">
+<h1>Recreate fig 4 from FAQ Paper<a class="headerlink" href="#recreate-fig-4-from-faq-paper" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="caption">
+<h2>Caption:<a class="headerlink" href="#caption" title="Permalink to this headline">¶</a></h2>
+<p>Relative accuracy between FAQ and GOAT, defined as y=log(<span class="math notranslate nohighlight">\(OFV_{GOAT} \over {OFV_{FAQ}}\)</span>). Performance is compared using the minimum objective function value over 100 random initializations, and the objective function value of a barycenter initialization with one random shuffle. Initializations and shuffles are the same across FAQ and GOAT.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bur26a&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26b&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26c&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26d&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26e&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;bur26g&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26h&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr15b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr20c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr25a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;els19&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16a&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16b&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16c&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16d&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16g&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16h&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16i&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16j&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32g&quot;</span><span class="p">,</span> <span class="s2">&quot;esc128&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;had12&quot;</span><span class="p">,</span> <span class="s2">&quot;had14&quot;</span><span class="p">,</span> <span class="s2">&quot;had16&quot;</span><span class="p">,</span> <span class="s2">&quot;had18&quot;</span><span class="p">,</span> <span class="s2">&quot;had20&quot;</span><span class="p">,</span> <span class="s2">&quot;kra30a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;kra30b&quot;</span><span class="p">,</span> <span class="s2">&quot;kra32&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa20a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa20b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa50a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa50b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa80a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug12&quot;</span><span class="p">,</span> <span class="s2">&quot;nug14&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16a&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16b&quot;</span><span class="p">,</span> <span class="s2">&quot;nug17&quot;</span><span class="p">,</span> <span class="s2">&quot;nug18&quot;</span><span class="p">,</span> <span class="s2">&quot;nug20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug21&quot;</span><span class="p">,</span> <span class="s2">&quot;nug22&quot;</span><span class="p">,</span> <span class="s2">&quot;nug24&quot;</span><span class="p">,</span> <span class="s2">&quot;nug25&quot;</span><span class="p">,</span> <span class="s2">&quot;nug27&quot;</span><span class="p">,</span> <span class="s2">&quot;nug28&quot;</span><span class="p">,</span> <span class="s2">&quot;nug30&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;rou12&quot;</span><span class="p">,</span> <span class="s2">&quot;rou15&quot;</span><span class="p">,</span> <span class="s2">&quot;rou20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;scr12&quot;</span><span class="p">,</span> <span class="s2">&quot;scr15&quot;</span><span class="p">,</span> <span class="s2">&quot;scr20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko42&quot;</span><span class="p">,</span> <span class="s2">&quot;sko49&quot;</span><span class="p">,</span> <span class="s2">&quot;sko56&quot;</span><span class="p">,</span> <span class="s2">&quot;sko64&quot;</span><span class="p">,</span> <span class="s2">&quot;sko72&quot;</span><span class="p">,</span> <span class="s2">&quot;sko81&quot;</span><span class="p">,</span> <span class="s2">&quot;sko90&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko100a&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100b&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100c&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100d&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100e&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;ste36b&quot;</span><span class="p">,</span> <span class="s2">&quot;ste36c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai12a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai12b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai17a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai20b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai35a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai40a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai40b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai64c&quot;</span><span class="p">,</span> <span class="s2">&quot;tai80a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai150b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai256c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tho30&quot;</span><span class="p">,</span> <span class="s2">&quot;tho40&quot;</span><span class="p">,</span> <span class="s2">&quot;tho150&quot;</span><span class="p">,</span> <span class="s2">&quot;wil50&quot;</span><span class="p">,</span> <span class="s2">&quot;wil100&quot;</span><span class="p">]</span>
+
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">logofv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">n_init</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">scores_faq_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="n">n_init</span><span class="p">))</span>
+<span class="n">scores_goat_r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="n">n_init</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
+    <span class="n">scores_faq_r</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">fun</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="n">gm_score</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
+    
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
+    <span class="n">scores_goat_r</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">fun</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+      
+    <span class="n">logofv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">fun</span><span class="o">/</span><span class="n">gm_score</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ better&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT better&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">logofv</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of vertices&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log relative ofv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;log relative ofv&#39;)
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_6_1.png" src="_images/qaplib_figs_6_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="table-alongside-above-figure">
+<h2>Table alongside above figure<a class="headerlink" href="#table-alongside-above-figure" title="Permalink to this headline">¶</a></h2>
+<p><img alt="title" src="_images/table2.png" /></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ranksums</span><span class="p">,</span> <span class="n">mannwhitneyu</span><span class="p">,</span> <span class="n">wilcoxon</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p-value: </span><span class="si">{</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">scores_faq_r</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">scores_goat_r</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">pvalue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 0.49493420416688194
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent GOAT better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent FAQ better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent same = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>percent GOAT better = 0.3442622950819672
+percent FAQ better = 0.3360655737704918
+percent same = 0.319672131147541
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+
+<span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bur26a&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26b&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26c&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26d&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26e&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;bur26g&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26h&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr15b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;chr20c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr25a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;els19&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16a&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16b&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16c&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16d&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16g&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;esc16h&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16i&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16j&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32g&quot;</span><span class="p">,</span> <span class="s2">&quot;esc128&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;had12&quot;</span><span class="p">,</span> <span class="s2">&quot;had14&quot;</span><span class="p">,</span> <span class="s2">&quot;had16&quot;</span><span class="p">,</span> <span class="s2">&quot;had18&quot;</span><span class="p">,</span> <span class="s2">&quot;had20&quot;</span><span class="p">,</span> <span class="s2">&quot;kra30a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;kra30b&quot;</span><span class="p">,</span> <span class="s2">&quot;kra32&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa20a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa20b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa50a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa50b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;lipa80a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug12&quot;</span><span class="p">,</span> <span class="s2">&quot;nug14&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16a&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16b&quot;</span><span class="p">,</span> <span class="s2">&quot;nug17&quot;</span><span class="p">,</span> <span class="s2">&quot;nug18&quot;</span><span class="p">,</span> <span class="s2">&quot;nug20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;nug21&quot;</span><span class="p">,</span> <span class="s2">&quot;nug22&quot;</span><span class="p">,</span> <span class="s2">&quot;nug24&quot;</span><span class="p">,</span> <span class="s2">&quot;nug25&quot;</span><span class="p">,</span> <span class="s2">&quot;nug27&quot;</span><span class="p">,</span> <span class="s2">&quot;nug28&quot;</span><span class="p">,</span> <span class="s2">&quot;nug30&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;rou12&quot;</span><span class="p">,</span> <span class="s2">&quot;rou15&quot;</span><span class="p">,</span> <span class="s2">&quot;rou20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;scr12&quot;</span><span class="p">,</span> <span class="s2">&quot;scr15&quot;</span><span class="p">,</span> <span class="s2">&quot;scr20&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko42&quot;</span><span class="p">,</span> <span class="s2">&quot;sko49&quot;</span><span class="p">,</span> <span class="s2">&quot;sko56&quot;</span><span class="p">,</span> <span class="s2">&quot;sko64&quot;</span><span class="p">,</span> <span class="s2">&quot;sko72&quot;</span><span class="p">,</span> <span class="s2">&quot;sko81&quot;</span><span class="p">,</span> <span class="s2">&quot;sko90&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;sko100a&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100b&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100c&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100d&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100e&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100f&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;ste36b&quot;</span><span class="p">,</span> <span class="s2">&quot;ste36c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai12a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai12b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai17a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai20b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai35a&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai40a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai40b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60b&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tai64c&quot;</span><span class="p">,</span> <span class="s2">&quot;tai80a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai150b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai256c&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;tho30&quot;</span><span class="p">,</span> <span class="s2">&quot;tho40&quot;</span><span class="p">,</span> <span class="s2">&quot;tho150&quot;</span><span class="p">,</span> <span class="s2">&quot;wil50&quot;</span><span class="p">,</span> <span class="s2">&quot;wil100&quot;</span><span class="p">]</span>
+
+<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
+
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">logofv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
+<span class="n">n_init</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">scores_faq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="n">n_init</span><span class="p">))</span>
+<span class="n">scores_goat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_qap</span><span class="p">,</span><span class="n">n_init</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+<span class="c1">#     scores_faq[i,:] = [x.fun for x in results]</span>
+    <span class="n">scores_faq</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">fun</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="n">gm_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">scores_faq</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    
+    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
+            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
+<span class="c1">#     scores_goat[i,:] = [x.fun for x in results]</span>
+    <span class="n">scores_goat</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">fun</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+    <span class="n">logofv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">scores_goat</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">/</span><span class="n">gm_score</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">)})</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ better&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT better&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">logofv</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of vertices&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log relative ofv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;log relative ofv&#39;)
+</pre></div>
+</div>
+<img alt="_images/qaplib_figs_11_1.png" src="_images/qaplib_figs_11_1.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ranksums</span><span class="p">,</span> <span class="n">mannwhitneyu</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;p-value: </span><span class="si">{</span><span class="n">mannwhitneyu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">scores_faq</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">scores_goat</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">pvalue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p-value: 0.4848059607737111
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent GOAT better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent FAQ better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent same = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>percent GOAT better = 0.4672131147540984
+percent FAQ better = 0.4344262295081967
+percent same = 0.09836065573770492
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="qaplib-benchmark-with-barycenter-init-50-random-shuffles">
 <h1>QAPLIB Benchmark with barycenter init, 50 random shuffles<a class="headerlink" href="#qaplib-benchmark-with-barycenter-init-50-random-shuffles" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_hide-input docutils container">
@@ -405,14 +658,14 @@
     <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-    <span class="n">n_init</span><span class="o">=</span><span class="mi">50</span>
+    <span class="n">n_init</span><span class="o">=</span><span class="mi">1</span>
     <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
             <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
     <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
     <span class="n">gm_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
     
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-9</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
             <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>  
     <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
@@ -438,118 +691,118 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style  type="text/css" >
-</style><table id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >QAP</th>        <th class="col_heading level0 col1" >OPT</th>        <th class="col_heading level0 col2" >FAQ</th>        <th class="col_heading level0 col3" >GOAT</th>    </tr></thead><tbody>
+</style><table id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >QAP</th>        <th class="col_heading level0 col1" >OPT</th>        <th class="col_heading level0 col2" >FAQ</th>        <th class="col_heading level0 col3" >GOAT</th>    </tr></thead><tbody>
                 <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row0" class="row_heading level0 row0" >0</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col0" class="data row0 col0" >chr12c</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col1" class="data row0 col1" >11156</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col2" class="data row0 col2" >13072</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row0_col3" class="data row0 col3" >12850</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row0" class="row_heading level0 row0" >0</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row0_col0" class="data row0 col0" >chr12c</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row0_col1" class="data row0 col1" >11156</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row0_col2" class="data row0 col2" >13072</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row0_col3" class="data row0 col3" >12850</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row1" class="row_heading level0 row1" >1</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col0" class="data row1 col0" >chr15a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col1" class="data row1 col1" >9896</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col2" class="data row1 col2" >12112</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row1_col3" class="data row1 col3" >19108</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row1" class="row_heading level0 row1" >1</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row1_col0" class="data row1 col0" >chr15a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row1_col1" class="data row1 col1" >9896</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row1_col2" class="data row1 col2" >19604</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row1_col3" class="data row1 col3" >14840</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row2" class="row_heading level0 row2" >2</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col0" class="data row2 col0" >chr15c</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col1" class="data row2 col1" >9504</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col2" class="data row2 col2" >11936</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row2_col3" class="data row2 col3" >16052</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row2" class="row_heading level0 row2" >2</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row2_col0" class="data row2 col0" >chr15c</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row2_col1" class="data row2 col1" >9504</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row2_col2" class="data row2 col2" >11936</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row2_col3" class="data row2 col3" >16284</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row3" class="row_heading level0 row3" >3</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col0" class="data row3 col0" >chr20b</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col1" class="data row3 col1" >2298</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col2" class="data row3 col2" >2764</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row3_col3" class="data row3 col3" >3260</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row3" class="row_heading level0 row3" >3</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row3_col0" class="data row3 col0" >chr20b</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row3_col1" class="data row3 col1" >2298</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row3_col2" class="data row3 col2" >3310</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row3_col3" class="data row3 col3" >3422</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row4" class="row_heading level0 row4" >4</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col0" class="data row4 col0" >chr22b</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col1" class="data row4 col1" >6194</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col2" class="data row4 col2" >7944</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row4_col3" class="data row4 col3" >7588</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row4" class="row_heading level0 row4" >4</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row4_col0" class="data row4 col0" >chr22b</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row4_col1" class="data row4 col1" >6194</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row4_col2" class="data row4 col2" >8582</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row4_col3" class="data row4 col3" >7482</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row5" class="row_heading level0 row5" >5</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col0" class="data row5 col0" >esc16b</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col1" class="data row5 col1" >292</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col2" class="data row5 col2" >302</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row5_col3" class="data row5 col3" >300</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row5" class="row_heading level0 row5" >5</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row5_col0" class="data row5 col0" >esc16b</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row5_col1" class="data row5 col1" >292</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row5_col2" class="data row5 col2" >320</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row5_col3" class="data row5 col3" >314</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row6" class="row_heading level0 row6" >6</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col0" class="data row6 col0" >rou12</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col1" class="data row6 col1" >235528</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col2" class="data row6 col2" >243582</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row6_col3" class="data row6 col3" >251864</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row6" class="row_heading level0 row6" >6</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row6_col0" class="data row6 col0" >rou12</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row6_col1" class="data row6 col1" >235528</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row6_col2" class="data row6 col2" >245168</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row6_col3" class="data row6 col3" >243392</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row7" class="row_heading level0 row7" >7</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col0" class="data row7 col0" >rou15</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col1" class="data row7 col1" >354210</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col2" class="data row7 col2" >369342</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row7_col3" class="data row7 col3" >359748</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row7" class="row_heading level0 row7" >7</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row7_col0" class="data row7 col0" >rou15</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row7_col1" class="data row7 col1" >354210</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row7_col2" class="data row7 col2" >369342</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row7_col3" class="data row7 col3" >370696</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row8" class="row_heading level0 row8" >8</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col0" class="data row8 col0" >rou20</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col1" class="data row8 col1" >725522</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col2" class="data row8 col2" >743884</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row8_col3" class="data row8 col3" >738510</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row8" class="row_heading level0 row8" >8</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row8_col0" class="data row8 col0" >rou20</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row8_col1" class="data row8 col1" >725522</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row8_col2" class="data row8 col2" >743884</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row8_col3" class="data row8 col3" >746404</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row9" class="row_heading level0 row9" >9</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col0" class="data row9 col0" >tai12a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col1" class="data row9 col1" >224416</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col2" class="data row9 col2" >244672</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row9_col3" class="data row9 col3" >239912</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row9" class="row_heading level0 row9" >9</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row9_col0" class="data row9 col0" >tai12a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row9_col1" class="data row9 col1" >224416</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row9_col2" class="data row9 col2" >244672</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row9_col3" class="data row9 col3" >224416</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row10" class="row_heading level0 row10" >10</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col0" class="data row10 col0" >tai15a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col1" class="data row10 col1" >388214</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col2" class="data row10 col2" >397376</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row10_col3" class="data row10 col3" >408414</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row10" class="row_heading level0 row10" >10</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row10_col0" class="data row10 col0" >tai15a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row10_col1" class="data row10 col1" >388214</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row10_col2" class="data row10 col2" >397376</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row10_col3" class="data row10 col3" >402248</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row11" class="row_heading level0 row11" >11</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col0" class="data row11 col0" >tai17a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col1" class="data row11 col1" >491812</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col2" class="data row11 col2" >509656</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row11_col3" class="data row11 col3" >518132</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row11" class="row_heading level0 row11" >11</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row11_col0" class="data row11 col0" >tai17a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row11_col1" class="data row11 col1" >491812</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row11_col2" class="data row11 col2" >516644</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row11_col3" class="data row11 col3" >499528</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row12" class="row_heading level0 row12" >12</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col0" class="data row12 col0" >tai20a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col1" class="data row12 col1" >703482</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col2" class="data row12 col2" >734276</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row12_col3" class="data row12 col3" >740054</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row12" class="row_heading level0 row12" >12</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row12_col0" class="data row12 col0" >tai20a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row12_col1" class="data row12 col1" >703482</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row12_col2" class="data row12 col2" >734276</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row12_col3" class="data row12 col3" >739120</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row13" class="row_heading level0 row13" >13</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col0" class="data row13 col0" >tai30a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col1" class="data row13 col1" >1818146</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col2" class="data row13 col2" >1859758</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row13_col3" class="data row13 col3" >1874468</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row13" class="row_heading level0 row13" >13</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row13_col0" class="data row13 col0" >tai30a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row13_col1" class="data row13 col1" >1818146</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row13_col2" class="data row13 col2" >1874428</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row13_col3" class="data row13 col3" >1869814</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row14" class="row_heading level0 row14" >14</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col0" class="data row14 col0" >tai35a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col1" class="data row14 col1" >2422002</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col2" class="data row14 col2" >2460940</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row14_col3" class="data row14 col3" >2502302</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row14" class="row_heading level0 row14" >14</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row14_col0" class="data row14 col0" >tai35a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row14_col1" class="data row14 col1" >2422002</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row14_col2" class="data row14 col2" >2460940</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row14_col3" class="data row14 col3" >2498962</td>
             </tr>
             <tr>
-                        <th id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8level0_row15" class="row_heading level0 row15" >15</th>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col0" class="data row15 col0" >tai40a</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col1" class="data row15 col1" >3139370</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col2" class="data row15 col2" >3225948</td>
-                        <td id="T_ba6bfdee_a60e_11eb_ad02_246e9624edb8row15_col3" class="data row15 col3" >3196748</td>
+                        <th id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8level0_row15" class="row_heading level0 row15" >15</th>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row15_col0" class="data row15 col0" >tai40a</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row15_col1" class="data row15 col1" >3139370</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row15_col2" class="data row15 col2" >3225948</td>
+                        <td id="T_08ce7046_a9d6_11eb_ad02_246e9624edb8row15_col3" class="data row15 col3" >3176428</td>
             </tr>
     </tbody></table></div></div>
 </div>
@@ -587,7 +840,7 @@
     <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
     <span class="n">gm_scores</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
     
-    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="s1">&#39;randomized&#39;</span><span class="p">,</span><span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
+    <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-6</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span><span class="s1">&#39;randomized&#39;</span><span class="p">,</span><span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
             <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>  
     <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
@@ -648,36 +901,36 @@
       <th>0</th>
       <td>chr12c</td>
       <td>11156</td>
-      <td>12292</td>
-      <td>12406</td>
+      <td>11566</td>
+      <td>11808</td>
     </tr>
     <tr>
       <th>1</th>
       <td>chr15a</td>
       <td>9896</td>
       <td>10440</td>
-      <td>10010</td>
+      <td>10192</td>
     </tr>
     <tr>
       <th>2</th>
       <td>chr15c</td>
       <td>9504</td>
-      <td>11036</td>
-      <td>11174</td>
+      <td>12458</td>
+      <td>9504</td>
     </tr>
     <tr>
       <th>3</th>
       <td>chr20b</td>
       <td>2298</td>
-      <td>2772</td>
-      <td>2462</td>
+      <td>2760</td>
+      <td>2598</td>
     </tr>
     <tr>
       <th>4</th>
       <td>chr22b</td>
       <td>6194</td>
-      <td>7000</td>
-      <td>7054</td>
+      <td>7228</td>
+      <td>6888</td>
     </tr>
     <tr>
       <th>5</th>
@@ -704,8 +957,8 @@
       <th>8</th>
       <td>rou20</td>
       <td>725522</td>
+      <td>730240</td>
       <td>731134</td>
-      <td>728724</td>
     </tr>
     <tr>
       <th>9</th>
@@ -725,36 +978,36 @@
       <th>11</th>
       <td>tai17a</td>
       <td>491812</td>
-      <td>496598</td>
-      <td>494458</td>
+      <td>493662</td>
+      <td>496330</td>
     </tr>
     <tr>
       <th>12</th>
       <td>tai20a</td>
       <td>703482</td>
-      <td>708584</td>
+      <td>708198</td>
       <td>705622</td>
     </tr>
     <tr>
       <th>13</th>
       <td>tai30a</td>
       <td>1818146</td>
-      <td>1829456</td>
+      <td>1837196</td>
       <td>1829456</td>
     </tr>
     <tr>
       <th>14</th>
       <td>tai35a</td>
       <td>2422002</td>
-      <td>2454010</td>
-      <td>2444344</td>
+      <td>2456214</td>
+      <td>2431498</td>
     </tr>
     <tr>
       <th>15</th>
       <td>tai40a</td>
       <td>3139370</td>
-      <td>3182368</td>
-      <td>3172228</td>
+      <td>3177518</td>
+      <td>3166816</td>
     </tr>
   </tbody>
 </table>
@@ -765,160 +1018,6 @@
 <div class="section" id="table-for-paper">
 <h1>Table for paper<a class="headerlink" href="#table-for-paper" title="Permalink to this headline">¶</a></h1>
 <p><img alt="title" src="_images/table1.png" /></p>
-</div>
-<div class="section" id="recreate-fig-4-from-faq-paper">
-<h1>Recreate fig 4 from FAQ Paper<a class="headerlink" href="#recreate-fig-4-from-faq-paper" title="Permalink to this headline">¶</a></h1>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
-<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
-
-<span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bur26a&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26b&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26c&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26d&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26e&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26f&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;bur26g&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26h&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;chr15b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;chr20c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr25a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;els19&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;esc16a&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16b&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16c&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16d&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16g&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;esc16h&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16i&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16j&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32g&quot;</span><span class="p">,</span> <span class="s2">&quot;esc128&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;had12&quot;</span><span class="p">,</span> <span class="s2">&quot;had14&quot;</span><span class="p">,</span> <span class="s2">&quot;had16&quot;</span><span class="p">,</span> <span class="s2">&quot;had18&quot;</span><span class="p">,</span> <span class="s2">&quot;had20&quot;</span><span class="p">,</span> <span class="s2">&quot;kra30a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;kra30b&quot;</span><span class="p">,</span> <span class="s2">&quot;kra32&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;lipa20a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa20b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;lipa50a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa50b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;lipa80a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;nug12&quot;</span><span class="p">,</span> <span class="s2">&quot;nug14&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16a&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16b&quot;</span><span class="p">,</span> <span class="s2">&quot;nug17&quot;</span><span class="p">,</span> <span class="s2">&quot;nug18&quot;</span><span class="p">,</span> <span class="s2">&quot;nug20&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;nug21&quot;</span><span class="p">,</span> <span class="s2">&quot;nug22&quot;</span><span class="p">,</span> <span class="s2">&quot;nug24&quot;</span><span class="p">,</span> <span class="s2">&quot;nug25&quot;</span><span class="p">,</span> <span class="s2">&quot;nug27&quot;</span><span class="p">,</span> <span class="s2">&quot;nug28&quot;</span><span class="p">,</span> <span class="s2">&quot;nug30&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;rou12&quot;</span><span class="p">,</span> <span class="s2">&quot;rou15&quot;</span><span class="p">,</span> <span class="s2">&quot;rou20&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;scr12&quot;</span><span class="p">,</span> <span class="s2">&quot;scr15&quot;</span><span class="p">,</span> <span class="s2">&quot;scr20&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;sko42&quot;</span><span class="p">,</span> <span class="s2">&quot;sko49&quot;</span><span class="p">,</span> <span class="s2">&quot;sko56&quot;</span><span class="p">,</span> <span class="s2">&quot;sko64&quot;</span><span class="p">,</span> <span class="s2">&quot;sko72&quot;</span><span class="p">,</span> <span class="s2">&quot;sko81&quot;</span><span class="p">,</span> <span class="s2">&quot;sko90&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;sko100a&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100b&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100c&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100d&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100e&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100f&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;ste36b&quot;</span><span class="p">,</span> <span class="s2">&quot;ste36c&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai12a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai12b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai17a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai20b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai35a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai40a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai40b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai64c&quot;</span><span class="p">,</span> <span class="s2">&quot;tai80a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai150b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai256c&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tho30&quot;</span><span class="p">,</span> <span class="s2">&quot;tho40&quot;</span><span class="p">,</span> <span class="s2">&quot;tho150&quot;</span><span class="p">,</span> <span class="s2">&quot;wil50&quot;</span><span class="p">,</span> <span class="s2">&quot;wil100&quot;</span><span class="p">]</span>
-
-<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
-
-<span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
-<span class="n">logofv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_qap</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_qap</span><span class="p">):</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">B</span> <span class="o">=</span> <span class="n">datafile</span><span class="p">[</span><span class="n">qapprob</span><span class="p">[</span><span class="n">i</span><span class="p">]][</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-    <span class="n">n_init</span> <span class="o">=</span> <span class="mi">50</span>
-    <span class="n">rng</span> <span class="o">=</span> <span class="n">check_random_state</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-    
-    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
-            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
-    <span class="n">gm_score</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">fun</span>
-    
-    <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-3</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span><span class="s1">&#39;P0&#39;</span><span class="p">:</span> <span class="s1">&#39;randomized&#39;</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;reg&#39;</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">:</span><span class="mf">1e-2</span><span class="p">}</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="n">Parallel</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)(</span><span class="n">delayed</span><span class="p">(</span><span class="n">quadratic_assignment_ot</span><span class="p">)(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">options</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;rng&quot;</span><span class="p">:</span> <span class="n">r</span><span class="p">}})</span>
-            <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">rng</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">iinfo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n_init</span><span class="p">))</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">fun</span><span class="p">,)</span>
-  
-    <span class="n">logofv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">fun</span><span class="o">/</span><span class="n">gm_score</span><span class="p">)</span>
-    
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">)})</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span><span class="n">logofv</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of vertices&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log relative ofv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;log relative ofv&#39;)
-</pre></div>
-</div>
-<img alt="_images/qaplib_figs_13_1.png" src="_images/qaplib_figs_13_1.png" />
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">10</span><span class="p">,</span><span class="mi">9</span><span class="p">)})</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span><span class="n">linestyles</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;grey&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">==</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;FAQ better&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sizes</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span><span class="n">logofv</span><span class="p">[</span><span class="n">logofv</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;GOAT better&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;# of vertices&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;log relative ofv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;log relative ofv&#39;)
-</pre></div>
-</div>
-<img alt="_images/qaplib_figs_14_1.png" src="_images/qaplib_figs_14_1.png" />
-</div>
-</div>
-<div class="section" id="table-alongside-above-figure">
-<h2>Table alongside above figure<a class="headerlink" href="#table-alongside-above-figure" title="Permalink to this headline">¶</a></h2>
-<p><img alt="title" src="_images/table2.png" /></p>
-<div class="cell tag_hide-input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qapprob</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;bur26a&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26b&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26c&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26d&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26e&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26f&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;bur26g&quot;</span><span class="p">,</span> <span class="s2">&quot;bur26h&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr12c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;chr15b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr15c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr18b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr20b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;chr20c&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22a&quot;</span><span class="p">,</span> <span class="s2">&quot;chr22b&quot;</span><span class="p">,</span> <span class="s2">&quot;chr25a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;els19&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;esc16a&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16b&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16c&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16d&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16g&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;esc16h&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16i&quot;</span><span class="p">,</span> <span class="s2">&quot;esc16j&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32e&quot;</span><span class="p">,</span> <span class="s2">&quot;esc32g&quot;</span><span class="p">,</span> <span class="s2">&quot;esc128&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;had12&quot;</span><span class="p">,</span> <span class="s2">&quot;had14&quot;</span><span class="p">,</span> <span class="s2">&quot;had16&quot;</span><span class="p">,</span> <span class="s2">&quot;had18&quot;</span><span class="p">,</span> <span class="s2">&quot;had20&quot;</span><span class="p">,</span> <span class="s2">&quot;kra30a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;kra30b&quot;</span><span class="p">,</span> <span class="s2">&quot;kra32&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;lipa20a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa20b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa30b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa40b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;lipa50a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa50b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa60b&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa70b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;lipa80a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90a&quot;</span><span class="p">,</span> <span class="s2">&quot;lipa90b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;nug12&quot;</span><span class="p">,</span> <span class="s2">&quot;nug14&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16a&quot;</span><span class="p">,</span> <span class="s2">&quot;nug16b&quot;</span><span class="p">,</span> <span class="s2">&quot;nug17&quot;</span><span class="p">,</span> <span class="s2">&quot;nug18&quot;</span><span class="p">,</span> <span class="s2">&quot;nug20&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;nug21&quot;</span><span class="p">,</span> <span class="s2">&quot;nug22&quot;</span><span class="p">,</span> <span class="s2">&quot;nug24&quot;</span><span class="p">,</span> <span class="s2">&quot;nug25&quot;</span><span class="p">,</span> <span class="s2">&quot;nug27&quot;</span><span class="p">,</span> <span class="s2">&quot;nug28&quot;</span><span class="p">,</span> <span class="s2">&quot;nug30&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;rou12&quot;</span><span class="p">,</span> <span class="s2">&quot;rou15&quot;</span><span class="p">,</span> <span class="s2">&quot;rou20&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;scr12&quot;</span><span class="p">,</span> <span class="s2">&quot;scr15&quot;</span><span class="p">,</span> <span class="s2">&quot;scr20&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;sko42&quot;</span><span class="p">,</span> <span class="s2">&quot;sko49&quot;</span><span class="p">,</span> <span class="s2">&quot;sko56&quot;</span><span class="p">,</span> <span class="s2">&quot;sko64&quot;</span><span class="p">,</span> <span class="s2">&quot;sko72&quot;</span><span class="p">,</span> <span class="s2">&quot;sko81&quot;</span><span class="p">,</span> <span class="s2">&quot;sko90&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;sko100a&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100b&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100c&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100d&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100e&quot;</span><span class="p">,</span> <span class="s2">&quot;sko100f&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;ste36b&quot;</span><span class="p">,</span> <span class="s2">&quot;ste36c&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai12a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai12b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai15b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai17a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai20a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai20b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai25b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai30b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai35a&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai40a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai40b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai50b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai60b&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tai64c&quot;</span><span class="p">,</span> <span class="s2">&quot;tai80a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100a&quot;</span><span class="p">,</span> <span class="s2">&quot;tai100b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai150b&quot;</span><span class="p">,</span> <span class="s2">&quot;tai256c&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;tho30&quot;</span><span class="p">,</span> <span class="s2">&quot;tho40&quot;</span><span class="p">,</span> <span class="s2">&quot;tho150&quot;</span><span class="p">,</span> <span class="s2">&quot;wil50&quot;</span><span class="p">,</span> <span class="s2">&quot;wil100&quot;</span><span class="p">]</span>
-
-<span class="n">n_qap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">qapprob</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent GOAT better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent FAQ better = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;percent same = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">logofv</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">/</span><span class="n">n_qap</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>percent GOAT better = 0.36885245901639346
-percent FAQ better = 0.319672131147541
-percent same = 0.3114754098360656
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="mean-and-variance-with-multiple-random-shuffles">
 <h1>Mean and variance with multiple random shuffles<a class="headerlink" href="#mean-and-variance-with-multiple-random-shuffles" title="Permalink to this headline">¶</a></h1>
@@ -1030,7 +1129,7 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3578ab5f98&gt;
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_20_1.png" src="_images/qaplib_figs_20_1.png" />
+<img alt="_images/qaplib_figs_24_1.png" src="_images/qaplib_figs_24_1.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1060,7 +1159,7 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;percent difference from optimal objective function value&#39;)
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_21_1.png" src="_images/qaplib_figs_21_1.png" />
+<img alt="_images/qaplib_figs_25_1.png" src="_images/qaplib_figs_25_1.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1091,7 +1190,7 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3578971860&gt;
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_22_1.png" src="_images/qaplib_figs_22_1.png" />
+<img alt="_images/qaplib_figs_26_1.png" src="_images/qaplib_figs_26_1.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1121,7 +1220,7 @@ percent same = 0.3114754098360656
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;percent difference from optimal objective function value&#39;)
 </pre></div>
 </div>
-<img alt="_images/qaplib_figs_23_1.png" src="_images/qaplib_figs_23_1.png" />
+<img alt="_images/qaplib_figs_27_1.png" src="_images/qaplib_figs_27_1.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1204,6 +1303,6 @@ percent same = 0.3114754098360656
   
   <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  None
+  
   </body>
 </html>
