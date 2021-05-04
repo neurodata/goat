@@ -22,13 +22,13 @@
   chapters:
   - file: rho_sbm
 
-- part: Human Connectome Matching
-  chapters:
-  - file: human_connectome
-  
 - part: SGM Fig 2
   chapters:
   - file: sgm
+
+- part: Human Connectome Matching
+  chapters:
+  - file: human_connectome
   
 - part: Nanoscale Connectome Matching
   chapters: 
