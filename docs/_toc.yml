@@ -6,6 +6,10 @@
   chapters:
   - file: expos_fig
   
+- part: LAP vs Lightspeed
+  chapters:
+  - file: lap_vs_ot
+  
 - part: QAPLIB
   chapters:
   - file: qaplib_figs
