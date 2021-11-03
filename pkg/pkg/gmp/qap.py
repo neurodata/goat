@@ -474,6 +474,6 @@ def _quadratic_assignment_faq(
 
     score = _calc_score(A, B, unshuffled_perm)
 
-    res = {"col_ind": unshuffled_perm, "fun": score, "nit": n_iter}
+    res = {"col_ind": unshuffled_perm, "fun": score, "nit": n_iter, 'pm':P}
 
     return OptimizeResult(res)

@@ -1,10 +1,10 @@
 import numpy as np
-
+from numba import jit
 
 def _check_init_input(P0, n):
     row_sum = np.sum(P0, axis=0)
     col_sum = np.sum(P0, axis=1)
-    tol = 1e-3
+    tol = 3e-2
     msg = None
     if P0.shape != (n, n):
         msg = "`P0` matrix must have shape m' x m', where m'=n-m"
@@ -23,13 +23,15 @@ def _split_matrix(X, n):
     upper, lower = X[:n], X[n:]
     return upper[:, :n], upper[:, n:], lower[:, :n], lower[:, n:]
 
-
+from numba import njit
+@jit(nopython=True)
 def _doubly_stochastic(P, tol=1e-3, max_iter=1000):
     # Adapted from @btaba implementation
     # https://github.com/btaba/sinkhorn_knopp
     # of Sinkhorn-Knopp algorithm
     # https://projecteuclid.org/euclid.pjm/1102992505
-
+    
+    n = P.shape[0]
     c = 1 / P.sum(axis=0)
     r = 1 / (P @ c)
     P_eps = P
@@ -44,5 +46,6 @@ def _doubly_stochastic(P, tol=1e-3, max_iter=1000):
 
         c = 1 / (r @ P)
         r = 1 / (P @ c)
-        P_eps = r[:, None] * P * c
+#         P_eps = r[:, None] * P * c
+        P_eps = r.reshape((n,1)) * P * c
     return P_eps

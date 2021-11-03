@@ -220,7 +220,7 @@ def _quadratic_assignment_faq_ot(
     tol=0.03,
     reg=100,
     thr=5e-2,
-    grad_thresh=0,
+    sinkh = 'ot',
 ):
     r"""
     Solve the quadratic assignment problem (approximately).
@@ -383,8 +383,8 @@ def _quadratic_assignment_faq_ot(
         msg = "Invalid 'P0' parameter string"
     elif maxiter <= 0:
         msg = "'maxiter' must be a positive integer"
-    elif tol <= 0:
-        msg = "'tol' must be a positive float"
+#     elif tol < 0:
+#         msg = "'tol' must be a positive float"
     if msg is not None:
         raise ValueError(msg)
 
@@ -430,10 +430,12 @@ def _quadratic_assignment_faq_ot(
             # Sinkhorn balancing
             K = _doubly_stochastic(K)
             P = J * 0.5 + K * 0.5
-    else:
+    elif isinstance(P0, np.ndarray):
         P0 = np.atleast_2d(P0)
         _check_init_input(P0, n_unseed)
-        P = P0
+        invert_inds = np.argsort(nonseed_B)
+        perm_nonseed_B = np.argsort(invert_inds)
+        P = P0[:, perm_nonseed_B]
 
     const_sum = A21 @ B21.T + A12.T @ B12
 
@@ -441,10 +443,8 @@ def _quadratic_assignment_faq_ot(
     for n_iter in range(1, maxiter + 1):
         # [1] Algorithm 1 Line 3 - compute the gradient of f(P) = -tr(APB^tP^t)
         grad_fp = const_sum + A22 @ P @ B22.T + A22.T @ P @ B22
-        if grad_thresh > 0:
-            grad_fp = grad_fp * (grad_fp > grad_thresh)
         # [1] Algorithm 1 Line 4 - get direction Q by solving Eq. 8
-        Q = alap(grad_fp, n_unseed, maximize, reg, thr)
+        Q = alap(grad_fp, n_unseed, maximize, reg, thr, sinkh)
         #         Q = np.eye(n_unseed)[cols]
 
         # [1] Algorithm 1 Line 5 - compute the step size
@@ -478,7 +478,6 @@ def _quadratic_assignment_faq_ot(
     # [1] Algorithm 1 Line 7 - end main loop
 
     # [1] Algorithm 1 Line 8 - project onto the set of permutation matrices
-    #     print(P)
     _, col = linear_sum_assignment(-P)
     perm = np.concatenate((np.arange(n_seeds), col + n_seeds))
 
@@ -486,22 +485,30 @@ def _quadratic_assignment_faq_ot(
     unshuffled_perm[perm_A] = perm_B[perm]
 
     score = _calc_score(A, B, unshuffled_perm)
-
-    res = {"col_ind": unshuffled_perm, "fun": score, "nit": n_iter}
+    res = {"col_ind": unshuffled_perm, "fun": score, "nit": n_iter, "pm": P}
 
     return OptimizeResult(res)
 
 
 # from numba import jit
 # @jit(nopython=True)
-def alap(P, n, maximize, reg, tol):
-    power = 1 if maximize else -1
-    lamb = reg / np.max(np.abs(P))
-    P = np.exp(lamb * power * P)
+from ot import sinkhorn
+def alap(P, n, maximize, reg, tol, sinkh):
 
-    #     ones = np.ones(n)
-    #     P_eps = sinkhorn(ones, ones, P, power/lamb, stopInnerThr=5e-02) # * (P > np.log(1/n)/lamb)
+    if sinkh == 'ot':
+        power = -1 if maximize else 1
+        lamb = reg / np.max(np.abs(P))
+        ones = np.ones(n)
+        P_eps = sinkhorn(ones, ones, P, power/lamb, stopInnerThr=tol,numItermax=500) # * (P > np.log(1/n)/lamb)
+        
+    elif sinkh == 'ds':
+        power = 1 if maximize else -1
+        lamb = reg / np.max(np.abs(P))
+        P = np.exp(lamb * power * P)
+        P_eps = _doubly_stochastic(P, tol, 500)
 
-    P_eps = _doubly_stochastic(P, tol)
-
+#     return np.around(P_eps,3)
+#    r = int(np.floor(np.log10(1/n)) * -2)
+#    P_eps = np.around(P_eps, r)
+    
     return P_eps
