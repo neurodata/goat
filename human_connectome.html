@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -33,7 +33,7 @@
     
   <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
@@ -41,10 +41,10 @@
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -73,6 +73,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/nd_logo.png" class="logo" alt="logo">
       
       
@@ -82,7 +86,7 @@
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -91,7 +95,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Motivation
  </span>
@@ -103,7 +107,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   LAP vs Lightspeed
  </span>
@@ -115,7 +119,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   QAPLIB
  </span>
@@ -127,7 +131,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   ER Simulation
  </span>
@@ -139,7 +143,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   rho-SBM simulations
  </span>
@@ -151,7 +155,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   SGM Fig 2
  </span>
@@ -163,7 +167,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Human Connectome Matching
  </span>
@@ -175,7 +179,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   Nanoscale Connectome Matching
  </span>
@@ -187,7 +191,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption" role="heading">
  <span class="caption-text">
   ALPN matching with GOAT
  </span>
@@ -302,7 +306,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
@@ -310,8 +314,8 @@
   </a>
  </li>
  <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recreate-fig-6-from-frigo-et-al">
-   Recreate fig 6 from Frigo et al.
+  <a class="reference internal nav-link" href="#recreate-fig-5-from-frigo-et-al">
+   Recreate fig 5 from Frigo et al.
   </a>
  </li>
 </ul>
@@ -325,7 +329,7 @@
         
               <div>
                 
-  <div class="section" id="matching-human-connectome-data">
+  <div class="tex2jax_ignore mathjax_ignore section" id="matching-human-connectome-data">
 <h1>Matching Human Connectome Data<a class="headerlink" href="#matching-human-connectome-data" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -357,14 +361,15 @@
 </div>
 </div>
 </div>
-<div class="section" id="recreate-fig-6-from-frigo-et-al">
-<h1>Recreate fig 6 from <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2020.12.16.422501v1.full.pdf">Frigo et al.</a><a class="headerlink" href="#recreate-fig-6-from-frigo-et-al" title="Permalink to this headline">¶</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="recreate-fig-5-from-frigo-et-al">
+<h1>Recreate fig 5 from <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2020.12.16.422501v1.full.pdf">Frigo et al.</a><a class="headerlink" href="#recreate-fig-5-from-frigo-et-al" title="Permalink to this headline">¶</a></h1>
 <p>Data from <a class="reference external" href="https://osf.io/depux/files/">https://osf.io/depux/files/</a></p>
 <p>For parcel (node) sizes [200, 400, 600, 800], I ran FAQ on the first 10 Gallardo connectomes. The connectome adjacency matrix was sampled, hollowed (diagonal entries set to zero), and matched against a random permutation of itself. As we see, FAQ recovers the true permutation everytime.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">graspologic.match</span> <span class="kn">import</span> <span class="n">GraphMatch</span>
 
 <span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;../data/hcp_data&#39;</span>
 <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="n">isfile</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">f</span><span class="p">))]</span>
@@ -376,10 +381,13 @@
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
     <span class="n">A</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">parcels</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
-    <span class="n">resot</span> <span class="o">=</span> <span class="n">quadratic_assignment</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">options</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;maximize&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span><span class="s1">&#39;tol&#39;</span><span class="p">:</span><span class="mf">1e-7</span><span class="p">,</span><span class="s1">&#39;maxiter&#39;</span><span class="p">:</span><span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;shuffle_input&#39;</span><span class="p">:</span><span class="kc">True</span><span class="p">,})</span><span class="c1"># &#39;reg&#39;: 300, &#39;thr&#39;:5e-2})</span>
-    <span class="n">gm_ratio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">resot</span><span class="o">.</span><span class="n">col_ind</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">gm</span> <span class="o">=</span> <span class="n">GraphMatch</span><span class="p">(</span><span class="n">shuffle_input</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">gm</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">gm_ratio</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">gm</span><span class="o">.</span><span class="n">perm_inds_</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    
 </pre></div>
 </div>
 </div>
@@ -418,6 +426,24 @@
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.000e+00 1.370e+03 1.384e+03 ... 8.000e+00 1.200e+01 2.000e+00]
+ [2.408e+03 0.000e+00 2.136e+03 ... 0.000e+00 4.900e+01 3.000e+00]
+ [9.010e+02 1.261e+03 0.000e+00 ... 0.000e+00 3.000e+00 0.000e+00]
+ ...
+ [8.700e+01 3.000e+00 1.600e+01 ... 0.000e+00 7.000e+00 5.100e+01]
+ [3.200e+01 1.980e+02 1.500e+01 ... 1.500e+01 0.000e+00 1.600e+01]
+ [4.000e+00 4.000e+00 1.000e+00 ... 5.000e+01 1.100e+01 0.000e+00]]
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -443,16 +469,36 @@
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="sgm.html" title="previous page">SGM figure 2</a>
-    <a class='right-next' id="next-link" href="elegans.html" title="next page">Matching the C. elegans connectomes</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="sgm.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">SGM figure 2</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="elegans.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Matching the C. elegans connectomes</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
