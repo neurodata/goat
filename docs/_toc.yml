@@ -1,40 +1,30 @@
-# Table of contents
-# Learn more at https://jupyterbook.org/customize/toc.html
-- file: outline
-
-- part: Motivation
+format: jb-book
+root: outline
+parts:
+- caption: Motivation
   chapters:
   - file: expos_fig
-  
-- part: LAP vs Lightspeed
+- caption: LAP vs Lightspeed
   chapters:
   - file: lap_vs_ot
-  
-- part: QAPLIB
+- caption: QAPLIB
   chapters:
   - file: qaplib_figs
-  
-- part: ER Simulation
+- caption: ER Simulation
   chapters:
   - file: er_time
-  
-- part: rho-SBM simulations
+- caption: rho-SBM simulations
   chapters:
   - file: rho_sbm
-
-- part: SGM Fig 2
+- caption: SGM Fig 2
   chapters:
   - file: sgm
-
-- part: Human Connectome Matching
+- caption: Human Connectome Matching
   chapters:
   - file: human_connectome
-  
-- part: Nanoscale Connectome Matching
-  chapters: 
+- caption: Nanoscale Connectome Matching
+  chapters:
   - file: elegans
-  
-- part: ALPN matching with GOAT
+- caption: ALPN matching with GOAT
   chapters:
   - file: ALPN
-  
