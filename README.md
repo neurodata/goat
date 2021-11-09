@@ -1,4 +1,4 @@
-# GMOT
+# GOAT
 
 A paper using optimal transport to solve the graph matching problem.
 

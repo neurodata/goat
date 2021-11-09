@@ -2,7 +2,8 @@
 
 ## Figure Panels
 
-- Some kind of expository figure
+- This site provides documentation for the code used to produce figures in the paper "Graph Matching via Optimal Transport"
+<!-- - Some kind of expository figure
   - show a very small graph matching problem
   - show that even in this simple setting, there are ties in (1)
   - somehow represent the sinkhown solution as a convex combination of the solutions above 
@@ -21,7 +22,7 @@
 - Some kind of figure on SoftSGM/vertex nomination
   - figure 5 or 7 from SGM
 - Real data: hopefully maggot
-  - need to figure out why match ratio was lower but objfunc value was higher
+  - need to figure out why match ratio was lower but objfunc value was higher -->
 
 ## Code
 - solvers that give access to the permutation matrices/gradients along the way

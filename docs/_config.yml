@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : GMOT  # The title of the book. Will be placed in the left navbar.
+title                       : GOAT  # The title of the book. Will be placed in the left navbar.
 author                      : NeuroData  # The author of the book
 copyright                   : "2021"  # Copyright year to be placed in the footer
 logo                        : ./images/nd_logo.png  # A path to the book logo
@@ -23,8 +23,8 @@ html:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/neurodata/gmot
-  path_to_book: gmot
+  url: https://github.com/neurodata/goat
+  path_to_book: goat
   branch: main
 
 sphinx:
