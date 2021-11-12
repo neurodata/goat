@@ -2,6 +2,8 @@
 
 A paper using optimal transport to solve the graph matching problem.
 
+https://arxiv.org/abs/2111.05366
+
 ## Repo structure 
 - ``.github``: Files specifying how the repo behaves on GitHub
 - ``data``: Directory to store the raw data. 
